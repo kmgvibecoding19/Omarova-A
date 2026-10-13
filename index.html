@@ -1,0 +1,1478 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ÜY Home — посуда и домашний текстиль</title>
+<meta name="description" content="Посуда и текстиль из натуральных материалов: лён, керамика ручной работы, фарфор. Цены в тенге, доставка по Казахстану и в любую страну мира.">
+<meta property="og:title" content="ÜY Home — посуда и домашний текстиль">
+<meta property="og:description" content="Лён, керамика ручной работы и фарфор. Доставка в любую страну мира.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏺</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@400;500;600&display=swap&subset=cyrillic,cyrillic-ext" rel="stylesheet">
+<style>
+:root{
+  --milk:#F7F2EA; --linen:#EDE3D3; --sand:#D9C7AE; --terra:#B85C38; --terra-d:#9A4A2C;
+  --ink:#3B2F2A; --muted:#6F6056; --olive:#7C8466; --cream:#FFFCF7; --line:#E0D3C0;
+  --serif:"Cormorant Garamond","Cormorant",Georgia,"Times New Roman",serif;
+  --sans:"Inter",-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:calc(80px + env(safe-area-inset-top,0px))}
+html,body{overflow-x:clip}
+body{margin:0;background:var(--milk);color:var(--ink);font:400 16px/1.6 var(--sans);-webkit-font-smoothing:antialiased}
+img,svg{max-width:100%;display:block}
+button{font:inherit;color:inherit;cursor:pointer}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--terra);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1240px;margin:0 auto;padding:0 24px}
+h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.1;margin:0;letter-spacing:-.01em}
+h2{font-size:clamp(32px,4vw,46px)}
+.lead{color:var(--muted);max-width:60ch;margin:12px 0 0}
+section{padding:104px 0}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:999px;background:var(--terra);color:#fff;padding:14px 26px;font-weight:500;font-size:15px;text-decoration:none;transition:background .2s}
+.btn:hover{background:var(--terra-d)}
+.btn-ghost{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--ink)}
+.btn-ghost:hover{background:var(--ink);color:var(--milk)}
+.btn-sm{padding:9px 16px;font-size:14px}
+.btn-block{width:100%}
+.icon{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;flex:none}
+
+/* header */
+.hdr{position:fixed;inset:0 0 auto 0;z-index:40;padding-top:env(safe-area-inset-top,0px);background:rgba(247,242,234,.86);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid transparent;transition:border-color .2s}
+.hdr.scrolled{border-color:var(--line)}
+.hdr .wrap{display:flex;align-items:center;height:72px;gap:24px}
+.logo{font-family:var(--serif);font-size:28px;font-weight:600;text-decoration:none;letter-spacing:.01em}
+.nav{display:flex;gap:26px;margin:0 auto}
+.nav a{text-decoration:none;font-size:14.5px;color:var(--muted);padding:6px 0;border-bottom:1.5px solid transparent}
+.nav a:hover,.nav a.active{color:var(--ink);border-color:var(--terra)}
+.hdr-right{display:flex;align-items:center;gap:14px;margin-left:auto}
+.lang{display:flex;border:1px solid var(--line);border-radius:999px;padding:3px}
+.lang button{border:0;background:none;padding:5px 11px;border-radius:999px;font-size:13px;font-weight:500;color:var(--muted)}
+.lang button[aria-pressed="true"]{background:var(--ink);color:var(--milk)}
+.cart-btn{position:relative;border:0;background:none;padding:8px}
+.cart-btn .icon{width:24px;height:24px}
+.cart-count{position:absolute;top:0;right:-2px;min-width:19px;height:19px;padding:0 5px;border-radius:999px;background:var(--terra);color:#fff;font-size:11px;font-weight:600;display:grid;place-items:center}
+.cart-count[hidden]{display:none}
+.burger{display:none;border:0;background:none;padding:8px}
+.mnav{display:none}
+
+/* hero */
+.hero{padding:calc(72px + 48px) 0 72px;min-height:min(100vh,920px);display:flex;align-items:center}
+.hero .wrap{display:grid;grid-template-columns:1.05fr 1fr;gap:56px;align-items:center}
+.hero h1{font-size:clamp(40px,5vw,66px);line-height:1.04;max-width:16ch}
+.hero p{font-size:18px;color:var(--muted);max-width:44ch;margin:24px 0 32px}
+.hero-ctas{display:flex;gap:12px;flex-wrap:wrap}
+.facts{display:flex;flex-wrap:wrap;gap:12px 28px;margin:44px 0 0;padding:24px 0 0;border-top:1px solid var(--line);list-style:none}
+.facts li{display:flex;align-items:center;gap:10px;font-size:14.5px}
+.facts .icon{color:var(--terra)}
+.hero-art{position:relative;aspect-ratio:1;border-radius:28px;overflow:hidden}
+.hero-art svg{width:100%;height:100%}
+.hero-plate{transform-origin:300px 300px;animation:settle 1.6s cubic-bezier(.2,.7,.2,1) both}
+@keyframes settle{from{opacity:0;transform:rotate(-24deg) scale(.94)}to{opacity:1;transform:none}}
+
+/* product tiles */
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:40px 24px}
+.card-img{position:relative;display:block;width:100%;padding:0;border:0;background:var(--linen);border-radius:14px;overflow:hidden;aspect-ratio:4/5}
+.card-img svg{width:100%;height:100%}
+.badges{position:absolute;top:12px;left:12px;display:flex;flex-wrap:wrap;gap:6px}
+.badge{font-size:12px;font-weight:500;padding:4px 10px;border-radius:999px;background:var(--cream);color:var(--ink)}
+.badge.sale{background:var(--terra);color:#fff}
+.badge.prem{background:var(--ink);color:var(--milk)}
+.card{display:flex;flex-direction:column}
+.card h3{font-size:22px;margin:16px 0 4px}
+.card h3 button{border:0;background:none;padding:0;text-align:left;font:inherit}
+.card h3 button:hover{color:var(--terra-d)}
+.spec{font-size:14px;color:var(--muted);margin:0 0 14px}
+.card-foot{display:flex;flex-direction:column;align-items:flex-start;gap:12px;margin-top:auto}
+.price{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+.price .now{font-weight:600;font-size:17px}
+.price .now.sale{color:var(--terra)}
+.price s{color:var(--muted);font-size:14px}
+
+/* month */
+.month{background:var(--linen)}
+.month-grid{display:grid;grid-template-columns:1.25fr 1fr;gap:56px;align-items:center}
+.month-art{border-radius:22px;overflow:hidden;aspect-ratio:16/12;background:var(--sand)}
+.month-art svg{width:100%;height:100%}
+.pill{display:inline-flex;align-items:center;gap:8px;background:var(--terra);color:#fff;font-size:13px;font-weight:500;padding:6px 14px;border-radius:999px}
+.month h2{margin:18px 0 14px}
+.month .tagline{font-family:var(--serif);font-size:24px;line-height:1.3;margin:0 0 16px}
+.month .desc{color:var(--muted);margin:0 0 22px}
+.timer{display:inline-flex;align-items:baseline;gap:8px;font-size:14px;color:var(--muted)}
+.timer b{font-variant-numeric:tabular-nums;color:var(--ink);font-weight:600}
+.big-price{display:flex;align-items:baseline;gap:12px;margin:22px 0 18px}
+.big-price .now{font-family:var(--serif);font-size:40px;font-weight:600;color:var(--terra)}
+.big-price s{color:var(--muted)}
+.big-price .save{font-size:13px;color:var(--olive);font-weight:500}
+
+/* variant + qty */
+.opts{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 16px}
+.opt{border:1px solid var(--sand);background:var(--cream);border-radius:999px;padding:8px 16px;font-size:14px}
+.opt[aria-pressed="true"]{background:var(--ink);color:var(--milk);border-color:var(--ink)}
+.field-label{font-size:13px;color:var(--muted);font-weight:500}
+.qty{display:inline-flex;align-items:center;border:1px solid var(--sand);border-radius:999px;background:var(--cream)}
+.qty button{border:0;background:none;width:40px;height:40px;display:grid;place-items:center;border-radius:999px}
+.qty button:hover{background:var(--linen)}
+.qty button:disabled{opacity:.35;cursor:default;background:none}
+.qty input{width:44px;border:0;background:none;text-align:center;font:600 15px var(--sans);color:var(--ink);-moz-appearance:textfield}
+.qty input::-webkit-inner-spin-button{-webkit-appearance:none}
+.buy-row{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.dims{font-size:13.5px;color:var(--muted);margin:-6px 0 16px}
+
+/* deals */
+.sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:44px}
+.countdown{background:var(--ink);color:var(--milk);border-radius:16px;padding:14px 22px;display:flex;gap:18px;align-items:baseline}
+.countdown span{font-size:13px;opacity:.75}
+.countdown b{font-family:var(--serif);font-size:30px;font-weight:600;font-variant-numeric:tabular-nums}
+.deals-grid{grid-template-columns:repeat(3,1fr)}
+
+/* catalog */
+.catalog{background:var(--cream);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.toolbar{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin:0 0 40px;align-items:center}
+.tabs{display:flex;gap:4px;border-bottom:1px solid var(--line)}
+.tabs button{border:0;background:none;padding:10px 16px;font-size:15px;color:var(--muted);border-bottom:2px solid transparent;margin-bottom:-1px}
+.tabs button[aria-selected="true"]{color:var(--ink);border-color:var(--terra);font-weight:500}
+.filters{display:flex;gap:10px;flex-wrap:wrap}
+select,input,textarea{font:inherit;color:var(--ink)}
+.select{appearance:none;border:1px solid var(--sand);background:var(--milk) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%233B2F2A' fill='none' stroke-width='1.5'/%3E%3C/svg%3E") no-repeat right 14px center;border-radius:999px;padding:9px 38px 9px 16px;font-size:14px}
+
+/* why */
+.why{position:relative;overflow:hidden}
+.why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:40px;margin-top:48px}
+.why-item{border-top:1.5px solid var(--ink);padding-top:20px}
+.why-item .icon{width:28px;height:28px;color:var(--terra);margin-bottom:16px}
+.why-item h3{font-size:24px;margin-bottom:8px}
+.why-item p{margin:0;color:var(--muted);font-size:15px}
+.lines{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:64px}
+.line-box{border-radius:20px;padding:32px;background:var(--linen)}
+.line-box.prem{background:var(--ink);color:var(--milk)}
+.line-box h3{font-size:30px;margin-bottom:8px}
+.line-box p{margin:0;opacity:.85}
+.watermark{position:absolute;right:-120px;top:-60px;width:520px;opacity:.07;pointer-events:none;color:var(--terra)}
+
+/* delivery */
+.delivery{background:var(--linen)}
+.del-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:56px;margin-top:44px}
+.del-grid>*,.month-grid>*,.hero .wrap>*{min-width:0}
+.tbl-wrap{overflow-x:auto;border-radius:16px;background:var(--cream)}
+table{width:100%;border-collapse:collapse;font-size:14.5px;min-width:560px}
+th,td{text-align:left;padding:14px 18px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-weight:500;color:var(--muted);font-size:13px}
+tr:last-child td{border-bottom:0}
+td:first-child{font-weight:600}
+td:nth-child(3){white-space:nowrap}
+.note{font-size:14px;color:var(--muted);margin:16px 0 0}
+.pay-list{list-style:none;margin:0;padding:0;display:grid;gap:18px}
+.pay-list li{display:grid;grid-template-columns:auto 1fr;gap:4px 14px}
+.pay-list .icon{grid-row:span 2;width:24px;height:24px;color:var(--terra);margin-top:2px}
+.pay-list b{font-weight:600}
+.pay-list span{color:var(--muted);font-size:14.5px}
+.pay-head{font-size:28px;margin-bottom:22px}
+
+/* reviews */
+.rev-head .rating{display:flex;align-items:baseline;gap:10px}
+.rev-head .rating b{font-family:var(--serif);font-size:46px;font-weight:600}
+.stars{color:var(--terra);letter-spacing:2px}
+.rev-track{display:grid;grid-auto-flow:column;grid-auto-columns:calc((100% - 48px)/3);gap:24px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:12px;scrollbar-width:thin}
+.rev{scroll-snap-align:start;background:var(--cream);border:1px solid var(--line);border-radius:20px;padding:28px;display:flex;flex-direction:column;gap:14px}
+.rev-top{display:flex;gap:14px;align-items:center}
+.ava{width:46px;height:46px;border-radius:50%;display:grid;place-items:center;font-family:var(--serif);font-size:22px;font-weight:600;background:var(--sand)}
+.rev-top small{display:block;color:var(--muted);font-size:13px}
+.rev p{margin:0;font-family:var(--serif);font-size:20px;line-height:1.4}
+.rev .bought{margin-top:auto;font-size:13.5px;color:var(--muted)}
+.rev .bought button{border:0;background:none;padding:0;color:var(--terra-d);text-decoration:underline;text-underline-offset:3px;font-size:13.5px}
+.rev-nav{display:flex;gap:8px}
+.circle{width:44px;height:44px;border-radius:50%;border:1px solid var(--sand);background:var(--cream);display:grid;place-items:center}
+.circle:hover{background:var(--linen)}
+
+/* faq */
+.faq-list{max-width:820px;margin-top:40px}
+details{border-bottom:1px solid var(--line)}
+summary{list-style:none;cursor:pointer;padding:22px 40px 22px 0;font-family:var(--serif);font-size:23px;position:relative}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"";position:absolute;right:6px;top:50%;width:12px;height:12px;border-right:1.5px solid var(--ink);border-bottom:1.5px solid var(--ink);transform:translateY(-70%) rotate(45deg);transition:transform .2s}
+details[open] summary::after{transform:translateY(-30%) rotate(-135deg)}
+details p{margin:0 0 22px;color:var(--muted);max-width:68ch}
+
+/* footer */
+.ftr{background:var(--ink);color:var(--milk);padding:72px 0 calc(32px + env(safe-area-inset-bottom,0px))}
+.ftr-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px}
+.ftr .logo{font-size:34px}
+.ftr p,.ftr li{color:rgba(247,242,234,.72);font-size:14.5px}
+.ftr h4{font-weight:500;font-size:15px;margin:0 0 14px}
+.ftr ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.ftr a{text-decoration:none}
+.ftr a:hover,.ftr button.linkish:hover{color:var(--cream);text-decoration:underline}
+.ftr button.linkish{border:0;background:none;padding:0;color:inherit;font-size:14.5px;text-align:left}
+.ftr-bottom{margin-top:56px;padding-top:24px;border-top:1px solid rgba(247,242,234,.15);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:13px;color:rgba(247,242,234,.55)}
+
+/* whatsapp float */
+.wa-float{position:fixed;right:20px;bottom:calc(20px + env(safe-area-inset-bottom,0px));z-index:35;width:56px;height:56px;border-radius:50%;background:#2E9E5B;color:#fff;display:grid;place-items:center;box-shadow:0 8px 24px rgba(59,47,42,.18)}
+.wa-float .icon{width:28px;height:28px}
+
+/* overlay, drawer, modal */
+.overlay{position:fixed;inset:0;background:rgba(59,47,42,.38);z-index:50;opacity:0;pointer-events:none;transition:opacity .25s}
+.overlay.show{opacity:1;pointer-events:auto}
+.drawer{position:fixed;top:0;right:0;bottom:0;z-index:60;width:min(460px,100%);background:var(--milk);display:flex;flex-direction:column;transform:translateX(100%);transition:transform .3s cubic-bezier(.2,.7,.2,1);padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+.drawer.show{transform:none}
+.dr-head{display:flex;align-items:center;justify-content:space-between;padding:20px 24px;border-bottom:1px solid var(--line)}
+.dr-head h3{font-size:28px}
+.x{border:0;background:none;padding:8px;border-radius:50%}
+.x:hover{background:var(--linen)}
+.dr-body{flex:1;overflow-y:auto;padding:8px 24px 24px}
+.dr-foot{padding:20px 24px;border-top:1px solid var(--line);background:var(--cream)}
+.ci{display:grid;grid-template-columns:76px 1fr;gap:14px;padding:18px 0;border-bottom:1px solid var(--line)}
+.ci-img{width:76px;height:95px;border-radius:10px;overflow:hidden}
+.ci-img svg{width:100%;height:100%}
+.ci h4{margin:0;font-family:var(--serif);font-size:19px;font-weight:600;line-height:1.2}
+.ci .var{font-size:13px;color:var(--muted);margin:2px 0 10px}
+.ci-row{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap}
+.ci .qty button{width:34px;height:34px}
+.ci .qty input{width:34px}
+.trash{border:0;background:none;color:var(--muted);padding:6px;border-radius:50%}
+.trash:hover{color:var(--terra-d);background:var(--linen)}
+.sum-row{display:flex;justify-content:space-between;font-size:14.5px;margin:4px 0}
+.sum-row.total{font-size:18px;font-weight:600;margin:10px 0 4px}
+.progress{height:5px;border-radius:999px;background:var(--linen);overflow:hidden;margin:8px 0 4px}
+.progress i{display:block;height:100%;background:var(--olive);border-radius:999px;transition:width .3s}
+.small{font-size:13px;color:var(--muted);margin:4px 0 14px}
+.empty{text-align:center;padding:56px 12px;color:var(--muted)}
+.empty svg{width:140px;margin:0 auto 18px}
+.form{display:grid;gap:16px;padding-top:12px}
+.form label{display:grid;gap:6px;font-size:13.5px;font-weight:500}
+.inp{border:1px solid var(--sand);background:var(--cream);border-radius:12px;padding:12px 14px;font-size:15px;width:100%}
+.inp:focus{outline:none;border-color:var(--terra);box-shadow:0 0 0 3px rgba(184,92,56,.15)}
+.inp.err{border-color:#B3261E}
+.errmsg{color:#B3261E;font-size:12.5px;font-weight:400}
+fieldset{border:0;padding:0;margin:0;display:grid;gap:8px}
+legend{font-size:13.5px;font-weight:500;margin-bottom:8px}
+.radio{display:flex !important;grid-template-columns:none;align-items:center;gap:10px;font-weight:400 !important;font-size:14.5px !important;border:1px solid var(--line);background:var(--cream);border-radius:12px;padding:11px 14px;cursor:pointer}
+.radio:has(input:checked){border-color:var(--ink)}
+.radio input{accent-color:var(--terra);width:18px;height:18px;margin:0}
+.check{display:flex !important;gap:10px;align-items:flex-start;font-weight:400 !important}
+.check input{accent-color:var(--terra);width:18px;height:18px;margin:2px 0 0;flex:none}
+.back{border:0;background:none;padding:0;color:var(--muted);font-size:14px;text-decoration:underline;text-underline-offset:3px}
+.thanks{text-align:center;padding:48px 8px}
+.thanks .ok{width:72px;height:72px;border-radius:50%;background:var(--olive);color:#fff;display:grid;place-items:center;margin:0 auto 20px}
+.thanks h3{font-size:34px;margin-bottom:10px}
+.thanks p{color:var(--muted)}
+.thanks .btns{display:grid;gap:10px;margin-top:24px}
+
+.modal{position:fixed;inset:0;z-index:70;display:grid;place-items:center;padding:24px;pointer-events:none;opacity:0;transition:opacity .2s}
+.modal.show{opacity:1;pointer-events:auto}
+.modal-box{position:relative;background:var(--milk);border-radius:24px;width:min(1040px,100%);max-height:calc(100vh - 48px);overflow:auto;transform:translateY(12px);transition:transform .25s}
+.modal.show .modal-box{transform:none}
+.modal-box.narrow{width:min(520px,100%)}
+.modal-x{position:absolute;top:14px;right:14px;z-index:2;background:var(--cream)}
+.pm{display:grid;grid-template-columns:1.05fr 1fr}
+.pm-gal{padding:20px}
+.pm-main{border-radius:16px;overflow:hidden;aspect-ratio:4/5;background:var(--linen)}
+.pm-main svg{width:100%;height:100%}
+.thumbs{display:flex;gap:10px;margin-top:12px}
+.thumbs button{width:68px;height:85px;padding:0;border:2px solid transparent;border-radius:10px;overflow:hidden;background:none}
+.thumbs button[aria-pressed="true"]{border-color:var(--terra)}
+.thumbs svg{width:100%;height:100%}
+.pm-info{padding:40px 36px 36px 16px}
+.pm-info h2{font-size:clamp(30px,3.2vw,40px);margin:12px 0 8px}
+.pm-info .desc{color:var(--muted);margin:0 0 6px}
+.pm-meta{display:grid;grid-template-columns:auto 1fr;gap:6px 18px;font-size:14px;margin:20px 0 0;padding:18px 0 0;border-top:1px solid var(--line)}
+.pm-meta dt{color:var(--muted)}
+.pm-meta dd{margin:0}
+.comp{margin:14px 0 0;font-size:14px}
+.comp summary{font-family:var(--sans);font-size:14px;font-weight:500;padding:10px 30px 10px 0}
+.comp ul{margin:0 0 12px;padding-left:18px;color:var(--muted)}
+.ask{display:inline-flex;align-items:center;gap:8px;margin-top:16px;font-size:14px;color:var(--muted)}
+.ask:hover{color:var(--ink)}
+.stars-in{display:flex;gap:4px}
+.stars-in button{border:0;background:none;font-size:28px;color:var(--sand);padding:0 2px;line-height:1}
+.stars-in button.on{color:var(--terra)}
+
+.toast{position:fixed;left:50%;bottom:calc(28px + env(safe-area-inset-bottom,0px));transform:translate(-50%,20px);z-index:80;background:var(--ink);color:var(--milk);padding:13px 20px;border-radius:999px;font-size:14.5px;display:flex;gap:16px;align-items:center;opacity:0;pointer-events:none;transition:.25s}
+.toast.show{opacity:1;transform:translate(-50%,0);pointer-events:auto}
+.toast button{border:0;background:none;color:#F0B89C;font-weight:600;padding:0}
+
+/* responsive */
+@media (max-width:1100px){
+  .nav{display:none}
+  .burger{display:block}
+  .grid{grid-template-columns:repeat(3,1fr)}
+  .why-grid{grid-template-columns:repeat(2,1fr)}
+  .mnav{display:block;position:fixed;top:calc(72px + env(safe-area-inset-top,0px));left:0;right:0;z-index:39;background:var(--milk);border-bottom:1px solid var(--line);padding:8px 24px 20px;transform:translateY(-8px);opacity:0;pointer-events:none;transition:.2s}
+  .mnav.show{transform:none;opacity:1;pointer-events:auto}
+  .mnav a{display:block;padding:12px 0;font-family:var(--serif);font-size:24px;text-decoration:none;border-bottom:1px solid var(--line)}
+}
+@media (max-width:900px){
+  section{padding:72px 0}
+  .hero .wrap,.month-grid,.del-grid{grid-template-columns:1fr;gap:36px}
+  .hero{min-height:auto}
+  .hero-art{max-width:520px}
+  .deals-grid{grid-template-columns:repeat(2,1fr)}
+  .rev-track{grid-auto-columns:80%}
+  .pm{grid-template-columns:1fr}
+  .pm-info{padding:4px 22px 28px}
+  .lines{grid-template-columns:1fr}
+  .ftr-grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:640px){
+  .wrap{padding:0 18px}
+  .hdr .wrap{height:60px;gap:12px}
+  .mnav{top:calc(60px + env(safe-area-inset-top,0px))}
+  .hero{padding-top:calc(60px + 32px)}
+  .grid,.deals-grid{grid-template-columns:repeat(2,1fr);gap:28px 14px}
+  .card h3{font-size:18px}
+  .card .btn-sm{width:100%}
+  .price .now{font-size:15.5px}
+  .why-grid{grid-template-columns:1fr;gap:28px}
+  .rev-track{grid-auto-columns:88%}
+  .modal{padding:0;align-items:end}
+  .modal-box{border-radius:22px 22px 0 0;max-height:94vh}
+  .ftr-grid{grid-template-columns:1fr}
+  .countdown b{font-size:24px}
+  .wa-float{bottom:calc(84px + env(safe-area-inset-bottom,0px))}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none !important;transition:none !important;scroll-behavior:auto !important}
+}
+</style>
+</head>
+<body>
+
+<header class="hdr" id="hdr">
+  <div class="wrap">
+    <a href="#top" class="logo">ÜY Home</a>
+    <nav class="nav" id="nav" aria-label="Основное меню"></nav>
+    <div class="hdr-right">
+      <div class="lang" role="group" aria-label="Язык / Тіл">
+        <button type="button" data-lang="ru">РУС</button>
+        <button type="button" data-lang="kk">ҚАЗ</button>
+      </div>
+      <button class="cart-btn" type="button" id="cartBtn" aria-label="Корзина">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M5 8h14l-1.2 11.2a2 2 0 0 1-2 1.8H8.2a2 2 0 0 1-2-1.8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+        <span class="cart-count" id="cartCount" aria-live="polite" hidden>0</span>
+      </button>
+      <button class="burger" type="button" id="burger" aria-label="Меню" aria-expanded="false">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+<nav class="mnav" id="mnav" aria-label="Меню"></nav>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <h1 data-t="hero_title"></h1>
+        <p data-t="hero_sub"></p>
+        <div class="hero-ctas">
+          <a href="#catalog" class="btn" data-t="hero_cta1"></a>
+          <a href="#month" class="btn btn-ghost" data-t="hero_cta2"></a>
+        </div>
+        <ul class="facts" id="facts"></ul>
+      </div>
+      <div class="hero-art" id="heroArt"></div>
+    </div>
+  </section>
+
+  <section class="month" id="month"><div class="wrap" id="monthBox"></div></section>
+
+  <section class="deals" id="deals">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <h2 data-t="deals_title"></h2>
+          <p class="lead" data-t="deals_sub"></p>
+        </div>
+        <div class="countdown" id="weekTimer" aria-live="off"></div>
+      </div>
+      <div class="grid deals-grid" id="dealsGrid"></div>
+    </div>
+  </section>
+
+  <section class="catalog" id="catalog">
+    <div class="wrap">
+      <div class="sec-head" style="margin-bottom:32px">
+        <div>
+          <h2 data-t="catalog_title"></h2>
+          <p class="lead" data-t="catalog_sub"></p>
+        </div>
+      </div>
+      <div class="toolbar">
+        <div class="tabs" role="tablist" id="tabs"></div>
+        <div class="filters">
+          <label class="sr" for="segSel">Сегмент</label>
+          <select class="select" id="segSel"></select>
+          <label class="sr" for="sortSel">Сортировка</label>
+          <select class="select" id="sortSel"></select>
+        </div>
+      </div>
+      <div class="grid" id="catGrid"></div>
+    </div>
+  </section>
+
+  <section class="why" id="why">
+    <svg class="watermark" viewBox="0 0 200 200" aria-hidden="true" id="watermark"></svg>
+    <div class="wrap">
+      <h2 data-t="why_title"></h2>
+      <div class="why-grid" id="whyGrid"></div>
+      <div class="lines" id="lines"></div>
+    </div>
+  </section>
+
+  <section class="delivery" id="delivery">
+    <div class="wrap">
+      <h2 data-t="del_title"></h2>
+      <div class="del-grid">
+        <div>
+          <div class="tbl-wrap"><table id="delTable"></table></div>
+          <p class="note" data-t="del_note"></p>
+        </div>
+        <div>
+          <h3 class="pay-head" data-t="pay_title"></h3>
+          <ul class="pay-list" id="payList"></ul>
+          <p class="note" data-t="pay_note"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="reviews" id="reviews">
+    <div class="wrap">
+      <div class="sec-head rev-head">
+        <div>
+          <h2 data-t="rev_title"></h2>
+          <div class="rating" id="ratingBox"></div>
+        </div>
+        <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
+          <div class="rev-nav">
+            <button class="circle" type="button" data-rev="-1" aria-label="Назад"><svg class="icon" viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></button>
+            <button class="circle" type="button" data-rev="1" aria-label="Вперёд"><svg class="icon" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></button>
+          </div>
+          <button class="btn btn-ghost btn-sm" type="button" id="leaveReview" data-t="rev_leave"></button>
+        </div>
+      </div>
+      <div class="rev-track" id="revTrack"></div>
+    </div>
+  </section>
+
+  <section class="faq" id="faq" style="padding-top:0">
+    <div class="wrap">
+      <h2 data-t="faq_title"></h2>
+      <div class="faq-list" id="faqList"></div>
+    </div>
+  </section>
+</main>
+
+<footer class="ftr">
+  <div class="wrap">
+    <div class="ftr-grid">
+      <div>
+        <div class="logo">ÜY Home</div>
+        <p data-t="foot_about"></p>
+      </div>
+      <div>
+        <h4 data-t="foot_contacts"></h4>
+        <ul>
+          <li><a href="tel:+77000000000">+7 700 000 00 00</a></li>
+          <li><a href="mailto:hello@uyhome.kz">hello@uyhome.kz</a></li>
+          <li data-t="foot_addr"></li>
+          <li data-t="foot_hours"></li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-t="foot_social"></h4>
+        <ul>
+          <li><a href="https://instagram.com/" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="https://tiktok.com/" target="_blank" rel="noopener">TikTok</a></li>
+          <li><a href="#" data-wa-general>WhatsApp</a></li>
+          <li><a href="https://t.me/" target="_blank" rel="noopener">Telegram</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-t="foot_docs"></h4>
+        <ul id="docsList"></ul>
+      </div>
+    </div>
+    <div class="ftr-bottom">
+      <span>© 2026 ÜY Home. [ИП / ТОО, БИН]</span>
+      <span data-t="foot_made"></span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa-float" href="#" data-wa-general aria-label="WhatsApp">
+  <svg class="icon" viewBox="0 0 24 24"><path d="M12 3.5a8.5 8.5 0 0 0-7.3 12.9L3.5 20.5l4.2-1.1A8.5 8.5 0 1 0 12 3.5z"/><path d="M9 8.6c.2-.4.5-.5.8-.5h.5c.2 0 .4.1.5.4l.6 1.5c.1.2 0 .5-.1.7l-.5.6c.6 1.1 1.5 2 2.6 2.6l.6-.5c.2-.2.5-.2.7-.1l1.5.6c.3.1.4.3.4.5v.5c0 .3-.1.6-.5.8-.6.4-1.6.5-2.8 0a8 8 0 0 1-4.3-4.3c-.5-1.2-.4-2.2 0-2.8z"/></svg>
+</a>
+
+<div class="overlay" id="overlay"></div>
+<aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="drTitle">
+  <div class="dr-head"><h3 id="drTitle"></h3><button class="x" type="button" data-close aria-label="Закрыть"><svg class="icon" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+  <div class="dr-body" id="drBody"></div>
+  <div class="dr-foot" id="drFoot"></div>
+</aside>
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-label="">
+  <div class="modal-box" id="modalBox"></div>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+/* ============ Настройки (заменить на свои) ============ */
+const SETTINGS = {
+  whatsapp: "77000000000",          // номер менеджера без +
+  phoneShown: "+7 700 000 00 00",
+  freeAlmaty: 50000
+};
+
+/* ============ Тексты интерфейса RU / KZ ============ */
+const plRu = (n, f) => { const a = n % 10, b = n % 100; return f[(a === 1 && b !== 11) ? 0 : (a >= 2 && a <= 4 && (b < 10 || b >= 20)) ? 1 : 2]; };
+const T = {
+  ru: {
+    nav: [["#month","Товар месяца"],["#deals","Скидки"],["#catalog","Каталог"],["#delivery","Доставка"],["#reviews","Отзывы"],["#faq","Вопросы"]],
+    hero_title: "Посуда и текстиль, в которые влюбляешься с первого взгляда",
+    hero_sub: "Натуральный лён, керамика ручной работы и тонкий фарфор. Доставляем по Казахстану и в любую страну мира.",
+    hero_cta1: "Смотреть каталог", hero_cta2: "Товар месяца",
+    facts: ["Доставка по всему миру", "Наличные и безналичный расчёт", "Стандарт и премиум качество"],
+    month_badge: "Товар месяца", month_until: "До конца предложения",
+    save: a => `Выгода ${a}`,
+    deals_title: "Скидки недели", deals_sub: "Каждый понедельник — новые предложения. Скидка действует до воскресенья включительно.",
+    left: "Осталось",
+    catalog_title: "Каталог", catalog_sub: "Наборы посуды и домашний текстиль из натуральных материалов",
+    tabs: { all: "Все", dishes: "Посуда", textile: "Текстиль" },
+    seg: { all: "Любое качество", standard: "Стандарт", premium: "Премиум" },
+    sort: { pop: "Сначала популярные", asc: "Сначала дешевле", desc: "Сначала дороже", sale: "Сначала со скидкой" },
+    add: "В корзину", choose: "Выбрать размер", from: s => `от ${s}`, added: "Добавлено в корзину",
+    badge: { premium: "Премиум", hit: "Хит", new: "Новинка" },
+    items: n => `${n} ${plRu(n, ["предмет","предмета","предметов"])}`,
+    persons: n => `на ${n} персон`,
+    sizes: "Размеры:", size: "Размер", qty: "Количество", material: "Материал", care: "Уход", origin: "Производство",
+    comp: "Состав набора", itemsInSet: "Предметов в наборе", ask: "Задать вопрос в WhatsApp", addSum: s => `В корзину — ${s}`,
+    stock: "В наличии", pcs: "шт",
+    why_title: "Почему выбирают нас",
+    why: [
+      ["Натуральные материалы", "Лён, хлопок, шерсть мериноса, керамика и фарфор от проверенных мастерских."],
+      ["Ручная работа", "Часть коллекций мастера делают вручную небольшими партиями, поэтому двух одинаковых предметов не бывает."],
+      ["Бережная упаковка", "Многослойная защита для хрупких вещей и подарочная коробка по запросу."],
+      ["Доставка в любую страну", "Отправляем по Казахстану, СНГ и всему миру с трек-номером и страховкой."]
+    ],
+    lines: [["Стандарт", "Надёжные вещи на каждый день: плотный хлопок, лён с хлопком, каменная керамика. Цены от 9 900 ₸."],
+            ["Премиум", "Стираный лён высокой плотности, меринос, костяной фарфор и керамика ручной работы. Цены от 54 900 ₸."]],
+    del_title: "Доставка и оплата",
+    del_head: ["Куда", "Как", "Срок", "Стоимость"],
+    del_rows: [["Алматы","Курьер или самовывоз из шоурума","1–2 дня","2 000 ₸, бесплатно от 50 000 ₸"],
+               ["Казахстан","Казпочта, CDEK, курьерские службы","2–7 дней","По тарифу службы, бесплатно от 100 000 ₸"],
+               ["СНГ","CDEK, EMS","5–14 дней","Рассчитает менеджер"],
+               ["Весь мир","EMS, DHL, UPS","7–21 день","Рассчитает менеджер"]],
+    del_note: "Все отправления — с трек-номером и страховкой. Хрупкие товары упаковываем в несколько слоёв защиты.",
+    pay_title: "Оплата",
+    pay: [["Наличные","Курьеру или в шоуруме. Только по Казахстану."],
+          ["Kaspi","Перевод, Kaspi QR или счёт на оплату — реквизиты пришлёт менеджер."],
+          ["Банковская карта","Visa или Mastercard по ссылке на оплату от менеджера."],
+          ["Банковский перевод","Для юрлиц и заказов из-за рубежа."]],
+    pay_note: "Сайт не принимает оплату онлайн и не запрашивает данные карты. Для заказов за пределами Казахстана — только безналичный расчёт.",
+    rev_title: "Отзывы покупателей", rev_of: "из 5", rev_count: n => `${n} ${plRu(n, ["отзыв","отзыва","отзывов"])}`,
+    rev_leave: "Оставить отзыв", rev_bought: "Покупка:",
+    faq_title: "Частые вопросы",
+    faq: [["Как оформить заказ?","Добавьте товары в корзину, заполните короткую форму и нажмите «Отправить заказ в WhatsApp». Менеджер подтвердит наличие и пришлёт реквизиты для оплаты."],
+          ["Можно ли оплатить при получении?","Да, наличными курьеру или в шоуруме — по Казахстану."],
+          ["Доставляете ли вы за границу?","Да, в любую страну мира. Стоимость доставки менеджер рассчитает после заявки."],
+          ["Как ухаживать за льном?","Стирка при 30–40 °C, без отбеливателей. Лён становится мягче с каждой стиркой."],
+          ["Можно ли мыть посуду в посудомоечной машине?","Это указано в карточке каждого товара в строке «Уход»."],
+          ["Можно ли вернуть товар?","Да, в течение 14 дней при сохранении товарного вида, по закону РК о защите прав потребителей."],
+          ["Есть ли подарочная упаковка?","Да, напишите об этом в комментарии к заказу."]],
+    foot_about: "Посуда и домашний текстиль из натуральных материалов. Алматы, Казахстан.",
+    foot_contacts: "Контакты", foot_social: "Соцсети", foot_docs: "Документы",
+    foot_addr: "г. Алматы, ул. [адрес шоурума]", foot_hours: "Ежедневно 10:00–20:00",
+    docs: ["Политика конфиденциальности","Условия возврата","Публичная оферта"],
+    doc_text: "Текст документа будет добавлен владельцем магазина.",
+    foot_made: "Доставка по Казахстану и в любую страну мира",
+    cart_title: "Корзина", cart_empty: "Корзина пока пуста. В каталоге вас ждут лён и керамика.", to_catalog: "Перейти в каталог",
+    cart_count: n => `Товаров: ${n} шт`, discount: "Скидка", total: "Итого", del_calc: "Стоимость доставки рассчитает менеджер",
+    free_left: s => `До бесплатной доставки по Алматы осталось ${s}`, free_ok: "Доставка по Алматы — бесплатно",
+    checkout: "Оформить заказ", remove: "Удалить", undo: "Вернуть", removed: "Товар удалён",
+    form_title: "Оформление заказа", back: "Назад в корзину",
+    f: { name: "Имя", phone: "Телефон или WhatsApp", country: "Страна", city: "Город", address: "Адрес", delivery: "Способ доставки", payment: "Способ оплаты", comment: "Комментарий", comment_ph: "Например: подарочная упаковка", consent: "Согласен на обработку персональных данных" },
+    dlv: { courier: "Курьер", pickup: "Самовывоз из шоурума", post: "Почта или служба доставки", intl: "Международная доставка" },
+    pm: { cash: "Наличные", kaspi: "Kaspi", card: "Банковская карта по ссылке", bank: "Банковский перевод" },
+    send: "Отправить заказ в WhatsApp",
+    err_req: "Заполните это поле", err_phone: "Укажите номер полностью, например +7 701 123 45 67", err_consent: "Нужно согласие, чтобы отправить заказ",
+    thanks_title: "Заказ отправлен", thanks_text: id => `Заказ ${id} открыт в WhatsApp. Отправьте сообщение — менеджер ответит в течение 30 минут в рабочее время.`,
+    copy: "Скопировать текст заказа", copied: "Текст заказа скопирован", manager: "Номер менеджера:", cont: "Продолжить покупки",
+    countries: ["Казахстан","Россия","Кыргызстан","Узбекистан","Германия","Турция","ОАЭ","США","Другая страна"],
+    msg: { hello: "Здравствуйте! Новый заказ с сайта ÜY Home", order: "Заказ", total: "Итого", nodel: "(без учёта доставки)", discount: "Скидка",
+           name: "Имя", phone: "Телефон", place: "Страна, город", address: "Адрес", delivery: "Доставка", payment: "Оплата", comment: "Комментарий" },
+    q_msg: n => `Здравствуйте! Вопрос по товару: ${n}`,
+    wa_general: "Здравствуйте! У меня вопрос по товарам ÜY Home",
+    rf_title: "Ваш отзыв", rf_product: "Товар", rf_rating: "Оценка", rf_text: "Отзыв", rf_send: "Отправить отзыв в WhatsApp",
+    rf_note: "Отзыв появится на сайте после проверки.", rf_msg: "Отзыв с сайта ÜY Home",
+    units: ["дн", "ч", "мин"], close: "Закрыть", cart_aria: "Корзина", menu: "Меню",
+    locale: "ru-RU"
+  },
+  kk: {
+    nav: [["#month","Ай тауары"],["#deals","Жеңілдіктер"],["#catalog","Каталог"],["#delivery","Жеткізу"],["#reviews","Пікірлер"],["#faq","Сұрақтар"]],
+    hero_title: "Бір көргеннен ұнайтын ыдыс-аяқ пен тоқыма бұйымдар",
+    hero_sub: "Табиғи зығыр, қолдан жасалған керамика және жұқа фарфор. Қазақстан бойынша және әлемнің кез келген еліне жеткіземіз.",
+    hero_cta1: "Каталогты көру", hero_cta2: "Ай тауары",
+    facts: ["Бүкіл әлемге жеткізу", "Қолма-қол және қолма-қол ақшасыз төлем", "Стандарт және премиум сапа"],
+    month_badge: "Ай тауары", month_until: "Ұсыныстың аяқталуына",
+    save: a => `Үнем ${a}`,
+    deals_title: "Апта жеңілдіктері", deals_sub: "Әр дүйсенбі сайын жаңа ұсыныстар. Жеңілдік жексенбіні қоса алғанда жарамды.",
+    left: "Қалды",
+    catalog_title: "Каталог", catalog_sub: "Табиғи материалдан жасалған ыдыс-аяқ жиынтықтары мен үй тоқымасы",
+    tabs: { all: "Барлығы", dishes: "Ыдыс-аяқ", textile: "Тоқыма" },
+    seg: { all: "Кез келген сапа", standard: "Стандарт", premium: "Премиум" },
+    sort: { pop: "Алдымен танымалдары", asc: "Алдымен арзандары", desc: "Алдымен қымбаттары", sale: "Алдымен жеңілдіктегілер" },
+    add: "Себетке қосу", choose: "Өлшемін таңдау", from: s => `${s} бастап`, added: "Себетке қосылды",
+    badge: { premium: "Премиум", hit: "Хит", new: "Жаңа" },
+    items: n => `${n} зат`,
+    persons: n => `${n} адамға`,
+    sizes: "Өлшемдері:", size: "Өлшемі", qty: "Саны", material: "Материалы", care: "Күтімі", origin: "Өндіруші ел",
+    comp: "Жиынтық құрамы", itemsInSet: "Жиынтықтағы заттар саны", ask: "WhatsApp-та сұрақ қою", addSum: s => `Себетке — ${s}`,
+    stock: "Қоймада бар", pcs: "дана",
+    why_title: "Неге бізді таңдайды",
+    why: [
+      ["Табиғи материалдар", "Зығыр, мақта, меринос жүні, сенімді шеберханалардың керамикасы мен фарфоры."],
+      ["Қолөнер", "Коллекциялардың бір бөлігін шеберлер шағын партиямен қолдан жасайды, сондықтан бірдей екі зат болмайды."],
+      ["Мұқият орау", "Нәзік заттарға көп қабатты қорғаныс және сұраныс бойынша сыйлық қорабы."],
+      ["Кез келген елге жеткізу", "Қазақстан, ТМД және бүкіл әлем бойынша трек-нөмір мен сақтандырумен жібереміз."]
+    ],
+    lines: [["Стандарт", "Күнделікті қолдануға арналған сенімді заттар: тығыз мақта, мақта қосылған зығыр, тас керамика. Бағасы 9 900 ₸ бастап."],
+            ["Премиум", "Тығыздығы жоғары жуылған зығыр, меринос, сүйек фарфоры және қолдан жасалған керамика. Бағасы 54 900 ₸ бастап."]],
+    del_title: "Жеткізу және төлем",
+    del_head: ["Қайда", "Қалай", "Мерзімі", "Құны"],
+    del_rows: [["Алматы","Курьер немесе шоурумнан алып кету","1–2 күн","2 000 ₸, 50 000 ₸-ден бастап тегін"],
+               ["Қазақстан","Қазпошта, CDEK, курьерлік қызметтер","2–7 күн","Қызмет тарифі бойынша, 100 000 ₸-ден бастап тегін"],
+               ["ТМД","CDEK, EMS","5–14 күн","Менеджер есептейді"],
+               ["Бүкіл әлем","EMS, DHL, UPS","7–21 күн","Менеджер есептейді"]],
+    del_note: "Барлық жөнелтілімдер трек-нөмірмен және сақтандырумен. Нәзік тауарларды бірнеше қабат қорғаныспен орайамыз.",
+    pay_title: "Төлем",
+    pay: [["Қолма-қол ақша","Курьерге немесе шоурумда. Тек Қазақстан бойынша."],
+          ["Kaspi","Аударым, Kaspi QR немесе төлем шоты — деректемелерді менеджер жібереді."],
+          ["Банк картасы","Менеджер жіберген сілтеме арқылы Visa немесе Mastercard."],
+          ["Банк аударымы","Заңды тұлғалар мен шетелден келген тапсырыстар үшін."]],
+    pay_note: "Сайт онлайн төлем қабылдамайды және карта деректерін сұрамайды. Қазақстаннан тыс тапсырыстар үшін тек қолма-қол ақшасыз төлем.",
+    rev_title: "Сатып алушылардың пікірлері", rev_of: "5-тен", rev_count: n => `${n} пікір`,
+    rev_leave: "Пікір қалдыру", rev_bought: "Сатып алғаны:",
+    faq_title: "Жиі қойылатын сұрақтар",
+    faq: [["Тапсырысты қалай беруге болады?","Тауарларды себетке қосып, қысқа форманы толтырыңыз да, «Тапсырысты WhatsApp-қа жіберу» батырмасын басыңыз. Менеджер тауардың бар екенін растап, төлем деректемелерін жібереді."],
+          ["Алған кезде төлеуге бола ма?","Иә, Қазақстан бойынша курьерге немесе шоурумда қолма-қол ақшамен."],
+          ["Шетелге жеткізесіздер ме?","Иә, әлемнің кез келген еліне. Жеткізу құнын өтінімнен кейін менеджер есептейді."],
+          ["Зығырды қалай күтуге болады?","30–40 °C-та, ағартқышсыз жуыңыз. Зығыр әр жуған сайын жұмсара түседі."],
+          ["Ыдысты ыдыс жуғыш машинада жууға бола ма?","Бұл әр тауар карточкасындағы «Күтімі» жолында көрсетілген."],
+          ["Тауарды қайтаруға бола ма?","Иә, ҚР тұтынушылар құқығын қорғау туралы заңына сәйкес, тауар түрі сақталса, 14 күн ішінде."],
+          ["Сыйлық орамы бар ма?","Иә, бұл туралы тапсырысқа түсініктемеде жазыңыз."]],
+    foot_about: "Табиғи материалдан жасалған ыдыс-аяқ және үй тоқымасы. Алматы, Қазақстан.",
+    foot_contacts: "Байланыс", foot_social: "Әлеуметтік желілер", foot_docs: "Құжаттар",
+    foot_addr: "Алматы қ., [шоурум мекенжайы]", foot_hours: "Күн сайын 10:00–20:00",
+    docs: ["Құпиялылық саясаты","Қайтару шарттары","Жария оферта"],
+    doc_text: "Құжат мәтінін дүкен иесі қосады.",
+    foot_made: "Қазақстан бойынша және әлемнің кез келген еліне жеткізу",
+    cart_title: "Себет", cart_empty: "Себет әзірге бос. Каталогта зығыр мен керамика сізді күтіп тұр.", to_catalog: "Каталогқа өту",
+    cart_count: n => `Тауарлар: ${n} дана`, discount: "Жеңілдік", total: "Барлығы", del_calc: "Жеткізу құнын менеджер есептейді",
+    free_left: s => `Алматы бойынша тегін жеткізуге дейін ${s} қалды`, free_ok: "Алматы бойынша жеткізу тегін",
+    checkout: "Тапсырыс беру", remove: "Жою", undo: "Қайтару", removed: "Тауар жойылды",
+    form_title: "Тапсырысты рәсімдеу", back: "Себетке оралу",
+    f: { name: "Аты", phone: "Телефон немесе WhatsApp", country: "Ел", city: "Қала", address: "Мекенжай", delivery: "Жеткізу тәсілі", payment: "Төлем тәсілі", comment: "Түсініктеме", comment_ph: "Мысалы: сыйлық орамы", consent: "Дербес деректерді өңдеуге келісемін" },
+    dlv: { courier: "Курьер", pickup: "Шоурумнан алып кету", post: "Пошта немесе жеткізу қызметі", intl: "Халықаралық жеткізу" },
+    pm: { cash: "Қолма-қол ақша", kaspi: "Kaspi", card: "Сілтеме арқылы банк картасы", bank: "Банк аударымы" },
+    send: "Тапсырысты WhatsApp-қа жіберу",
+    err_req: "Бұл өрісті толтырыңыз", err_phone: "Нөмірді толық жазыңыз, мысалы +7 701 123 45 67", err_consent: "Тапсырыс жіберу үшін келісім қажет",
+    thanks_title: "Тапсырыс жіберілді", thanks_text: id => `${id} тапсырысы WhatsApp-та ашылды. Хабарламаны жіберіңіз — менеджер жұмыс уақытында 30 минут ішінде жауап береді.`,
+    copy: "Тапсырыс мәтінін көшіру", copied: "Тапсырыс мәтіні көшірілді", manager: "Менеджер нөмірі:", cont: "Сатып алуды жалғастыру",
+    countries: ["Қазақстан","Ресей","Қырғызстан","Өзбекстан","Германия","Түркия","БАӘ","АҚШ","Басқа ел"],
+    msg: { hello: "Сәлеметсіз бе! ÜY Home сайтынан жаңа тапсырыс", order: "Тапсырыс", total: "Барлығы", nodel: "(жеткізусіз)", discount: "Жеңілдік",
+           name: "Аты", phone: "Телефон", place: "Ел, қала", address: "Мекенжай", delivery: "Жеткізу", payment: "Төлем", comment: "Түсініктеме" },
+    q_msg: n => `Сәлеметсіз бе! Тауар бойынша сұрақ: ${n}`,
+    wa_general: "Сәлеметсіз бе! ÜY Home тауарлары бойынша сұрағым бар",
+    rf_title: "Сіздің пікіріңіз", rf_product: "Тауар", rf_rating: "Баға", rf_text: "Пікір", rf_send: "Пікірді WhatsApp-қа жіберу",
+    rf_note: "Пікір тексерілгеннен кейін сайтта пайда болады.", rf_msg: "ÜY Home сайтынан пікір",
+    units: ["күн", "сағ", "мин"], close: "Жабу", cart_aria: "Себет", menu: "Мәзір",
+    locale: "kk-KZ"
+  }
+};
+
+/* ============ Товары ============ */
+const L = (ru, kk) => ({ ru, kk });
+const PRODUCTS = [
+  { id:"dala", cat:"dishes", seg:"premium", art:"plates", bg:"#E6D8C3", pop:96, badges:["hit"],
+    name:L("Столовый сервиз «Дала»","«Дала» ас сервизі"),
+    desc:L("Сервиз, вдохновлённый степью: мягкие неровные края и матовая глазурь цвета топлёного молока. Каждая тарелка сделана вручную, поэтому немного отличается от соседней.",
+           "Даладан шабыт алған сервиз: жұмсақ, біркелкі емес жиектер және күңгірт сүт түсті глазурь. Әр тәрелке қолдан жасалған, сондықтан әрқайсысы ерекше."),
+    material:L("Керамика ручной работы, матовая глазурь","Қолдан жасалған керамика, күңгірт глазурь"),
+    care:L("Можно в посудомоечной машине и СВЧ","Ыдыс жуғыш машинада және микротолқынды пеште қолдануға болады"),
+    origin:L("Казахстан","Қазақстан"), items:18, persons:6,
+    comp:[[L("Обеденная тарелка Ø27 см","Ас тәрелкесі Ø27 см"),6],[L("Десертная тарелка Ø20 см","Десерт тәрелкесі Ø20 см"),6],[L("Глубокая миска Ø16 см","Терең тостаған Ø16 см"),6]],
+    variants:[{id:"set",price:89900}] },
+  { id:"shanyrak", cat:"dishes", seg:"premium", art:"teaset", bg:"#EADFCF", pop:88, badges:[],
+    name:L("Чайный набор «Шаңырақ»","«Шаңырақ» шай жиынтығы"),
+    desc:L("Тонкий костяной фарфор, который просвечивает на свету, и деликатная золотая кайма. Для чаепитий, которые хочется растянуть.",
+           "Жарыққа ұстаса мөлдірейтін жұқа сүйек фарфоры және нәзік алтын жиек. Ұзаққа созғыңыз келетін шай ішуге арналған."),
+    material:L("Костяной фарфор, золотая кайма","Сүйек фарфоры, алтын жиек"),
+    care:L("Только ручная мойка, не для СВЧ","Тек қолмен жуу, микротолқынды пешке болмайды"),
+    origin:L("Турция","Түркия"), items:13, persons:6,
+    comp:[[L("Чайник 1 л","Шәйнек 1 л"),1],[L("Чашка 220 мл","Шыныаяқ 220 мл"),6],[L("Блюдце Ø15 см","Табақша Ø15 см"),6]],
+    variants:[{id:"set",price:64500}] },
+  { id:"kese", cat:"dishes", seg:"standard", art:"kese", bg:"#E9D9C6", pop:92, badges:["hit"],
+    name:L("Набор пиал «Кесе»","«Кесе» кеселер жиынтығы"),
+    desc:L("Классическая форма пиалы в современном прочтении. Тёплая терракотовая глазурь, пиала удобно лежит в ладонях.",
+           "Кесенің классикалық пішіні жаңаша. Жылы терракота глазурі, алақанға жайлы жатады."),
+    material:L("Каменная керамика, глазурь «терракота»","Тас керамика, «терракота» глазурі"),
+    care:L("Можно в посудомоечной машине и СВЧ","Ыдыс жуғыш машинада және микротолқынды пеште қолдануға болады"),
+    origin:L("Казахстан","Қазақстан"), items:6, persons:6,
+    comp:[[L("Пиала 180 мл","Кесе 180 мл"),6]],
+    variants:[{id:"set",price:24900}] },
+  { id:"terracotta", cat:"dishes", seg:"premium", art:"terra", bg:"#E4D3BE", pop:80, badges:["new"],
+    name:L("Обеденный сервиз «Терракота»","«Терракота» ас сервизі"),
+    desc:L("Полный сервиз на шестерых: глубокий цвет обожжённой глины и реактивная глазурь, которая на каждом предмете ложится по-своему.",
+           "Алты адамға арналған толық сервиз: күйдірілген саздың терең түсі және әр затта өзінше жататын реактивті глазурь."),
+    material:L("Stoneware, реактивная глазурь, ручная роспись края","Stoneware, реактивті глазурь, жиегі қолмен боялған"),
+    care:L("Можно в посудомоечной машине и СВЧ","Ыдыс жуғыш машинада және микротолқынды пеште қолдануға болады"),
+    origin:L("Португалия","Португалия"), items:24, persons:6,
+    comp:[[L("Обеденная тарелка Ø28 см","Ас тәрелкесі Ø28 см"),6],[L("Закусочная тарелка Ø21 см","Тіскебасар тәрелкесі Ø21 см"),6],[L("Суповая миска Ø18 см","Сорпа тостағы Ø18 см"),6],[L("Кружка 350 мл","Саптыаяқ 350 мл"),6]],
+    variants:[{id:"set",price:149000}] },
+  { id:"glasses", cat:"dishes", seg:"standard", art:"glasses", bg:"#E8DCCB", pop:70, badges:[],
+    name:L("Набор бокалов «Лён»","«Лён» бокалдар жиынтығы"),
+    desc:L("Тонкое стекло ручного выдува с еле заметной дымкой. Лёгкие, звонкие, с хорошим балансом в руке.",
+           "Сәл ғана түтінді реңкі бар қолмен үрленген жұқа шыны. Жеңіл, сыңғырлаған, қолда жақсы теңгерілген."),
+    material:L("Стекло ручного выдува","Қолмен үрленген шыны"),
+    care:L("Рекомендуется ручная мойка","Қолмен жуу ұсынылады"),
+    origin:L("Чехия","Чехия"), items:4, persons:4,
+    comp:[[L("Бокал для вина 450 мл","Шарап бокалы 450 мл"),4]],
+    variants:[{id:"set",price:38900}] },
+  { id:"tamyr", cat:"dishes", seg:"standard", art:"platters", bg:"#EFE4D4", pop:74, badges:[],
+    name:L("Сервировочный набор «Тамыр»","«Тамыр» ас беру жиынтығы"),
+    desc:L("Три сервировочных предмета для семейного дастархана: от салата до горячего.",
+           "Отбасылық дастарқанға арналған үш зат: салаттан ыстық тағамға дейін."),
+    material:L("Керамика, глазурь «песок»","Керамика, «құм» глазурі"),
+    care:L("Можно в посудомоечной машине","Ыдыс жуғыш машинада жууға болады"),
+    origin:L("Казахстан","Қазақстан"), items:3, persons:6,
+    comp:[[L("Овальное блюдо 35 см","Сопақ табақ 35 см"),1],[L("Круглое блюдо Ø28 см","Дөңгелек табақ Ø28 см"),1],[L("Салатник Ø22 см","Салат ыдысы Ø22 см"),1]],
+    variants:[{id:"set",price:42000}] },
+
+  { id:"linen", cat:"textile", seg:"premium", art:"bedding", bg:"#E7DACA", pop:98, badges:[],
+    name:L("Постельное бельё «Лён Премиум»","«Лён Премиум» төсек-орын жиынтығы"),
+    desc:L("Стираный лён с мягкой живой фактурой: прохладный летом, тёплый зимой и мягче с каждой стиркой.",
+           "Жұмсақ, табиғи құрылымды жуылған зығыр: жазда салқын, қыста жылы, әр жуған сайын жұмсара түседі."),
+    tagline:L("Лён, который становится мягче с каждой стиркой","Әр жуған сайын жұмсара түсетін зығыр"),
+    material:L("100% стираный европейский лён, 160 г/м²","100% жуылған еуропалық зығыр, 160 г/м²"),
+    care:L("Стирка 30–40 °C, без отбеливателей","30–40 °C-та жуу, ағартқышсыз"),
+    origin:L("Литва","Литва"),
+    variants:[
+      {id:"15",label:L("1,5-сп","1,5 кісілік"),price:69900,dims:L("Пододеяльник 150×210, простыня 160×220, наволочки 2 шт 50×70 см","Көрпетыс 150×210, ақжайма 160×220, жастықтыс 2 дана 50×70 см")},
+      {id:"2",label:L("2-сп","2 кісілік"),price:84900,dims:L("Пододеяльник 180×220, простыня 220×240, наволочки 2 шт 50×70 см","Көрпетыс 180×220, ақжайма 220×240, жастықтыс 2 дана 50×70 см")},
+      {id:"euro",label:L("Евро","Евро"),price:94900,dims:L("Пододеяльник 200×220, простыня 240×260, наволочки 2 шт 50×70 и 2 шт 70×70 см","Көрпетыс 200×220, ақжайма 240×260, жастықтыс 2 дана 50×70 және 2 дана 70×70 см")},
+      {id:"king",label:L("King","King"),price:109900,dims:L("Пододеяльник 220×240, простыня 260×280, наволочки 4 шт 50×70 см","Көрпетыс 220×240, ақжайма 260×280, жастықтыс 4 дана 50×70 см")}] },
+  { id:"dastarkhan", cat:"textile", seg:"standard", art:"cloth", bg:"#ECE2D3", pop:85, badges:[],
+    name:L("Скатерть «Ақ дастархан»","«Ақ дастархан» дастарқан жабуы"),
+    desc:L("Скатерть для большого семейного стола. Пропитка защищает от пятен, а лён сохраняет естественную красоту.",
+           "Үлкен отбасылық дастарқанға арналған жабу. Сіңдірме дақтан қорғайды, ал зығыр табиғи сұлулығын сақтайды."),
+    material:L("Лён 70%, хлопок 30%, водоотталкивающая пропитка","Зығыр 70%, мақта 30%, су өткізбейтін сіңдірме"),
+    care:L("Стирка 40 °C, гладить с изнанки","40 °C-та жуу, теріс жағынан үтіктеу"),
+    origin:L("Казахстан","Қазақстан"),
+    variants:[{id:"s",label:L("140×180 см","140×180 см"),price:18900},{id:"m",label:L("140×240 см","140×240 см"),price:23900},{id:"l",label:L("160×300 см","160×300 см"),price:29900}] },
+  { id:"oyu", cat:"textile", seg:"standard", art:"napkins", bg:"#E9DDCB", pop:78, badges:["new"],
+    name:L("Набор льняных салфеток «Ою»","«Ою» зығыр майлықтар жиынтығы"),
+    desc:L("Шесть салфеток с тонкой вышивкой казахского орнамента в углу. Хороший подарок к новоселью.",
+           "Бұрышында қазақ оюы нәзік кестеленген алты майлық. Қоныс тойына жақсы сыйлық."),
+    material:L("100% лён, вышивка","100% зығыр, кесте"),
+    care:L("Стирка 40 °C","40 °C-та жуу"),
+    origin:L("Казахстан","Қазақстан"),
+    variants:[{id:"set",label:L("45×45 см, 6 шт","45×45 см, 6 дана"),price:12900}] },
+  { id:"zhaylau", cat:"textile", seg:"premium", art:"throw", bg:"#E4D6C2", pop:82, badges:[],
+    name:L("Плед «Жайлау»","«Жайлау» жамылғысы"),
+    desc:L("Невесомый плед из мериноса: греет, не колется и дышит.","Мериностан жасалған жеп-жеңіл жамылғы: жылытады, шаншымайды, ауа өткізеді."),
+    material:L("100% шерсть мериноса","100% меринос жүні"),
+    care:L("Деликатная стирка 30 °C или химчистка","30 °C-та нәзік жуу немесе химиялық тазалау"),
+    origin:L("Новая Зеландия, пошив в Казахстане","Жаңа Зеландия, Қазақстанда тігілген"),
+    variants:[{id:"s",label:L("130×170 см","130×170 см"),price:54900},{id:"l",label:L("180×220 см","180×220 см"),price:72900}] },
+  { id:"arasan", cat:"textile", seg:"standard", art:"towels", bg:"#E7DCCD", pop:76, badges:[],
+    name:L("Набор полотенец «Арасан»","«Арасан» сүлгілер жиынтығы"),
+    desc:L("Плотные махровые полотенца: впитывают влагу с первого касания и долго остаются мягкими.","Тығыз түкті сүлгілер: ылғалды бірден сіңіреді және ұзақ уақыт жұмсақ болып қалады."),
+    material:L("100% турецкий хлопок, 600 г/м²","100% түрік мақтасы, 600 г/м²"),
+    care:L("Стирка 40–60 °C","40–60 °C-та жуу"),
+    origin:L("Турция","Түркия"),
+    variants:[{id:"set",label:L("3 шт: 30×50, 50×90, 70×140 см","3 дана: 30×50, 50×90, 70×140 см"),price:27900}] },
+  { id:"qum", cat:"textile", seg:"standard", art:"cushion", bg:"#E6D8C4", pop:68, badges:[],
+    name:L("Декоративная наволочка «Құм»","«Құм» сәндік жастықтысы"),
+    desc:L("Льняная наволочка цвета тёплого песка для дивана или кровати. Скрытая молния, без наполнителя.","Диван немесе төсекке арналған жылы құм түсті зығыр жастықтыс. Жасырын сырма, толтырғышсыз."),
+    material:L("100% лён","100% зығыр"),
+    care:L("Стирка 30–40 °C","30–40 °C-та жуу"),
+    origin:L("Казахстан","Қазақстан"),
+    variants:[{id:"s",label:L("45×45 см","45×45 см"),price:9900},{id:"l",label:L("50×50 см","50×50 см"),price:11900}] }
+];
+
+/* ============ Акции (даты в демо считаются от текущей недели и месяца) ============ */
+const PROMO = {
+  month: { id: "linen", pct: 10 },
+  weekly: [ { id: "kese", pct: 15 }, { id: "zhaylau", pct: 20 }, { id: "arasan", pct: 10 } ]
+};
+
+/* ============ Отзывы ============ */
+const REVIEWS = [
+  { name:"Айгерим", city:L("Алматы","Алматы"), rating:5, date:"2026-09-14", pid:"dala", text:"Сервиз ещё красивее, чем на фото. Каждая тарелка немного своя — чувствуется ручная работа. Гости спрашивают, где купила!" },
+  { name:"Нұржан", city:L("Туркестан","Түркістан"), rating:5, date:"2026-10-05", pid:"kese", text:"Кеселер өте сапалы, түсі жылы, қолға жайлы. Анама сыйлыққа алдым, қатты ұнады." },
+  { name:"Дмитрий", city:L("Астана","Астана"), rating:5, date:"2026-09-02", pid:"linen", text:"Брал жене в подарок. Лён мягкий уже после первой стирки, упаковка как в дорогом бутике. Доставили за 3 дня." },
+  { name:"Динара", city:L("Шымкент","Шымкент"), rating:5, date:"2026-08-27", pid:"shanyrak", text:"Фарфор тонкий, звонкий, золотая кайма аккуратная. Подарила маме на юбилей — она в восторге." },
+  { name:"Ерлан", city:L("Караганда","Қарағанды"), rating:4, date:"2026-09-20", pid:"dastarkhan", text:"Качество отличное, пропитка реально работает — пролили чай, всё стёрлось. Минус звезда за то, что ждал на день дольше." },
+  { name:"Мадина", city:L("Берлин, Германия","Берлин, Германия"), rating:5, date:"2026-09-09", pid:"oyu", text:"Заказала в Германию, дошло за 12 дней, всё целое. Кусочек дома на моём столе. Спасибо!" },
+  { name:"Асель", city:L("Алматы","Алматы"), rating:5, date:"2026-10-08", pid:"kese", text:"Цвет терракоты очень тёплый, пиалы приятно держать. Взяла по скидке недели — теперь хочу весь сервиз «Терракота»." },
+  { name:"Алия", city:L("Ташкент, Узбекистан","Ташкент, Өзбекстан"), rating:5, date:"2026-09-28", pid:"zhaylau", text:"Очень нежный, совсем не колется. Менеджер быстро ответил в WhatsApp и посчитал доставку." }
+];
+
+/* ============ Иллюстрации товаров (SVG) ============ */
+let UID = 0;
+const sh = (cx, cy, rx, ry, o = .12) => `<ellipse cx="${cx}" cy="${cy}" rx="${rx}" ry="${ry}" fill="#3B2F2A" opacity="${o}"/>`;
+const curl = `<path d="M0 -8c7-10 20-8 19 2c-1 8-11 9-13 3M0 -8c-7-10-20-8-19 2c1 8 11 9 13 3M0 -8v16" fill="none" stroke-linecap="round"/>`;
+
+const ART = {
+  plates(u){
+    let s = sh(205,374,160,30,.13);
+    for (let i = 0; i < 5; i++) { const y = 360 - i * 11; s += `<ellipse cx="200" cy="${y}" rx="145" ry="40" fill="${i % 2 ? '#F6F0E6' : '#EEE5D6'}" stroke="#D3C2A8"/>`; }
+    s += `<ellipse cx="200" cy="316" rx="104" ry="27" fill="#E8DECC"/><ellipse cx="200" cy="317" rx="97" ry="23" fill="#F3ECE1"/>`;
+    s += sh(200,306,80,12,.12);
+    s += `<path d="M118 238Q121 303 200 308Q279 303 282 238Z" fill="#F7F1E7" stroke="#D3C2A8"/><ellipse cx="200" cy="238" rx="82" ry="20" fill="#EFE6D7" stroke="#D3C2A8"/><ellipse cx="200" cy="240" rx="72" ry="15" fill="#E2D6C2"/>`;
+    s += `<path d="M135 255Q140 290 175 300" stroke="#fff" stroke-opacity=".6" stroke-width="5" fill="none" stroke-linecap="round"/>`;
+    s += `<path d="M312 70Q298 150 276 222" stroke="#B89B72" stroke-width="2" fill="none"/>`;
+    for (let j = 0; j < 6; j++) { const x = 310 - j * 4.5, y = 78 + j * 15; s += `<ellipse cx="${x - 7}" cy="${y}" rx="4" ry="10" fill="#C9AE84" transform="rotate(-28 ${x - 7} ${y})"/><ellipse cx="${x + 6}" cy="${y + 4}" rx="4" ry="10" fill="#C9AE84" transform="rotate(24 ${x + 6} ${y + 4})"/>`; }
+    return s;
+  },
+  teaset(){
+    let s = sh(172,378,112,18,.12) + sh(320,404,72,12,.12);
+    s += `<path d="M96 276Q50 296 66 334Q78 360 104 352" stroke="#F4EEE4" stroke-width="12" fill="none" stroke-linecap="round"/>`;
+    s += `<path d="M236 296Q284 300 300 250Q304 241 315 244Q308 302 250 336Z" fill="#FBF7F0" stroke="#D9C7AE"/>`;
+    s += `<ellipse cx="170" cy="305" rx="88" ry="72" fill="#FBF7F0" stroke="#D9C7AE"/>`;
+    s += `<path d="M86 292Q170 318 254 292" stroke="#C9A45C" stroke-width="2" fill="none"/>`;
+    s += `<path d="M110 270Q118 330 160 360" stroke="#fff" stroke-width="6" fill="none" stroke-linecap="round" opacity=".9"/>`;
+    s += `<path d="M132 240Q170 202 208 240" fill="#FBF7F0" stroke="#D9C7AE"/><ellipse cx="170" cy="240" rx="46" ry="10" fill="#F4EEE4" stroke="#C9A45C" stroke-width="1.5"/><circle cx="170" cy="212" r="8" fill="#F4EEE4" stroke="#C9A45C"/>`;
+    s += `<ellipse cx="320" cy="400" rx="62" ry="13" fill="#F4EEE4" stroke="#D9C7AE"/>`;
+    s += `<path d="M357 360q20 4 9 23q-4 6-12 4" stroke="#FBF7F0" stroke-width="5" fill="none"/>`;
+    s += `<path d="M280 352Q284 395 320 397Q356 395 360 352Z" fill="#FBF7F0" stroke="#D9C7AE"/><ellipse cx="320" cy="352" rx="40" ry="9" fill="#C79A6A" stroke="#C9A45C" stroke-width="2"/>`;
+    s += `<path d="M312 336q-10-18 2-32q12-14 0-32M330 338q-8-14 2-26q10-12 0-26" stroke="#fff" stroke-width="3" fill="none" opacity=".75" stroke-linecap="round"/>`;
+    return s;
+  },
+  kese(){
+    const bowl = (cx, cy, w, c1, c2, c3, tea) => { const h = w * .78;
+      return sh(cx, cy + h + 3, w * .82, w * .13, .14) +
+        `<path d="M${cx-w} ${cy}Q${cx-w*.96} ${cy+h} ${cx} ${cy+h}Q${cx+w*.96} ${cy+h} ${cx+w} ${cy}Z" fill="${c1}"/>` +
+        `<ellipse cx="${cx}" cy="${cy}" rx="${w}" ry="${w*.24}" fill="${c2}"/><ellipse cx="${cx}" cy="${cy+w*.03}" rx="${w*.88}" ry="${w*.19}" fill="${tea ? '#9C6A3A' : c3}"/>` +
+        `<path d="M${cx-w*.72} ${cy+h*.3}Q${cx-w*.62} ${cy+h*.8} ${cx-w*.2} ${cy+h*.92}" stroke="#fff" stroke-opacity=".28" stroke-width="4" fill="none" stroke-linecap="round"/>`; };
+    let s = `<rect x="0" y="330" width="400" height="170" fill="#E1CDB6"/>`;
+    s += bowl(110,212,46,'#A9532F','#BC6640','#7E3B23') + bowl(200,212,46,'#B4603A','#C46D47','#86412A') + bowl(290,212,46,'#A9532F','#BC6640','#7E3B23');
+    s += bowl(82,302,56,'#B85C38','#C8714B','#8F4429') + bowl(200,302,56,'#C0653F','#D07A52','#8F4429',true) + bowl(318,302,56,'#B85C38','#C8714B','#8F4429');
+    return s;
+  },
+  terra(){
+    let s = `<rect x="40" y="300" width="170" height="150" rx="6" fill="#D9C7AE" transform="rotate(-8 125 375)"/>`;
+    s += `<circle cx="214" cy="224" r="135" fill="#3B2F2A" opacity=".12"/><circle cx="205" cy="215" r="132" fill="#B85C38"/><circle cx="205" cy="215" r="104" fill="#A64F2D"/><circle cx="205" cy="215" r="98" fill="#C0653F"/>`;
+    s += `<path d="M138 158Q170 128 216 126" stroke="#fff" stroke-opacity=".22" stroke-width="6" fill="none" stroke-linecap="round"/>`;
+    s += `<circle cx="306" cy="388" r="74" fill="#3B2F2A" opacity=".1"/><circle cx="300" cy="382" r="72" fill="#CC7650"/><circle cx="300" cy="382" r="56" fill="#D9875F"/>`;
+    s += `<circle cx="114" cy="392" r="46" fill="#3B2F2A" opacity=".12"/><rect x="142" y="379" width="32" height="14" rx="7" fill="#9A4A2C"/><circle cx="110" cy="386" r="44" fill="#9A4A2C"/><circle cx="110" cy="386" r="36" fill="#5E2E1C"/><ellipse cx="102" cy="378" rx="14" ry="9" fill="#7A4A30" opacity=".6"/>`;
+    s += `<path d="M352 150V300" stroke="#8A7A6A" stroke-width="5" stroke-linecap="round"/><path d="M341 108V150M348 108V150M356 108V150M363 108V150M341 150Q352 162 363 150" stroke="#8A7A6A" stroke-width="2.5" fill="none" stroke-linecap="round"/>`;
+    return s;
+  },
+  glasses(){
+    const g = (x, y, k) => sh(x, y + 205 * k + 4, 40 * k, 7 * k, .1) +
+      `<path d="M${x-42*k} ${y}Q${x-48*k} ${y+80*k} ${x} ${y+95*k}Q${x+48*k} ${y+80*k} ${x+42*k} ${y}Z" fill="#8C7B6B" fill-opacity=".16" stroke="#3B2F2A" stroke-opacity=".3" stroke-width="1.5"/>` +
+      `<ellipse cx="${x}" cy="${y}" rx="${42*k}" ry="${8*k}" fill="#fff" fill-opacity=".2" stroke="#3B2F2A" stroke-opacity=".3" stroke-width="1.5"/>` +
+      `<path d="M${x} ${y+95*k}V${y+205*k}" stroke="#3B2F2A" stroke-opacity=".35" stroke-width="${2.5*k}"/>` +
+      `<ellipse cx="${x}" cy="${y+205*k}" rx="${36*k}" ry="${7*k}" fill="#8C7B6B" fill-opacity=".18" stroke="#3B2F2A" stroke-opacity=".3" stroke-width="1.5"/>` +
+      `<path d="M${x-30*k} ${y+15*k}Q${x-33*k} ${y+60*k} ${x-14*k} ${y+80*k}" stroke="#fff" stroke-opacity=".75" stroke-width="${4*k}" fill="none" stroke-linecap="round"/>`;
+    return `<rect x="215" y="30" width="150" height="220" fill="#fff" opacity=".22"/><path d="M290 30V250M215 140H365" stroke="#E8DCCB" stroke-width="6"/>` + g(255,105,1.15) + g(140,150,1.02);
+  },
+  platters(){
+    const leaf = (x, y, a, c = '#7C8466') => `<ellipse cx="${x}" cy="${y}" rx="13" ry="5" fill="${c}" transform="rotate(${a} ${x} ${y})"/>`;
+    let s = `<ellipse cx="208" cy="184" rx="152" ry="84" fill="#3B2F2A" opacity=".1"/><ellipse cx="200" cy="176" rx="150" ry="82" fill="#E3D2B6"/><ellipse cx="200" cy="176" rx="120" ry="60" fill="#EADBC3"/>`;
+    s += `<circle cx="170" cy="168" r="14" fill="#B85C38"/><circle cx="215" cy="185" r="12" fill="#C8714B"/><circle cx="240" cy="160" r="10" fill="#B85C38"/>` + leaf(190,150,-20) + leaf(255,190,30,'#93996F') + leaf(150,190,15);
+    s += `<circle cx="143" cy="362" r="90" fill="#3B2F2A" opacity=".1"/><circle cx="135" cy="355" r="88" fill="#E3D2B6"/><circle cx="135" cy="355" r="66" fill="#EADBC3"/>`;
+    s += `<circle cx="306" cy="366" r="68" fill="#3B2F2A" opacity=".1"/><circle cx="300" cy="360" r="66" fill="#DCC8A8"/><circle cx="300" cy="360" r="54" fill="#C9B08B"/>`;
+    s += leaf(285,345,10) + leaf(310,365,-40,'#93996F') + leaf(298,380,60) + leaf(320,340,-10,'#93996F') + leaf(280,372,-70);
+    return s;
+  },
+  bedding(){
+    let s = sh(200,440,180,16,.12);
+    s += `<rect x="40" y="110" width="320" height="120" rx="18" fill="#C8B396"/><rect x="28" y="200" width="344" height="232" rx="22" fill="#D8C3A3"/>`;
+    s += `<rect x="58" y="172" width="132" height="72" rx="26" fill="#F1E8DA"/><rect x="210" y="172" width="132" height="72" rx="26" fill="#EDE3D3"/>`;
+    s += `<path d="M80 200q30 10 60-2M240 205q30 8 70-4" stroke="#3B2F2A" stroke-opacity=".08" stroke-width="2" fill="none"/>`;
+    s += `<path d="M28 262Q200 246 372 262L372 302Q200 288 28 302Z" fill="#E6D5BC"/>`;
+    s += `<path d="M80 336Q140 322 172 362M230 322Q282 352 330 340M110 396Q200 380 266 404" stroke="#3B2F2A" stroke-opacity=".1" stroke-width="2" fill="none"/>`;
+    s += `<rect x="44" y="430" width="12" height="22" fill="#A78B66"/><rect x="344" y="430" width="12" height="22" fill="#A78B66"/>`;
+    return s;
+  },
+  cloth(){
+    let s = `<rect x="78" y="398" width="14" height="80" fill="#B48F66"/><rect x="308" y="398" width="14" height="80" fill="#B48F66"/>`;
+    s += sh(200,482,170,10,.1);
+    s += `<path d="M64 232L336 232L360 262L40 262Z" fill="#FAF5EC"/>`;
+    s += `<path d="M40 262L360 262L352 402Q306 414 274 398Q234 416 200 400Q164 416 128 398Q94 412 48 402Z" fill="#F3EBDF"/>`;
+    s += `<path d="M110 266L104 402M200 266L200 400M292 266L298 400M155 266L150 398M247 266L252 398" stroke="#3B2F2A" stroke-opacity=".06" stroke-width="3"/>`;
+    s += sh(200,242,24,5,.12);
+    s += `<path d="M190 240Q176 204 192 182L192 162L208 162L208 182Q224 204 210 240Z" fill="#B85C38"/>`;
+    s += `<path d="M200 162Q195 110 214 64M203 124Q226 108 234 92M198 140Q178 124 170 106" stroke="#7A6A5F" stroke-width="2" fill="none"/>`;
+    s += `<circle cx="214" cy="64" r="4" fill="#C9AE84"/><circle cx="234" cy="92" r="4" fill="#C9AE84"/><circle cx="170" cy="106" r="4" fill="#C9AE84"/>`;
+    return s;
+  },
+  napkins(){
+    let s = sh(208,446,150,16,.12);
+    s += `<path d="M70 250L100 330L100 420L70 340Z" fill="#CDBA9C"/>`;
+    const cols = ['#EDE3D3','#D9C7AE','#C8714B','#EDE3D3','#D9C7AE'];
+    cols.forEach((c, i) => { const y = 330 + i * 18; s += `<path d="M100 ${y}L330 ${y}L330 ${y + 18}L100 ${y + 18}Z" fill="${c}" stroke="#3B2F2A" stroke-opacity=".06"/>`; });
+    s += `<path d="M70 250L300 250L330 330L100 330Z" fill="#F3ECE0"/>`;
+    s += `<path d="M84 260L292 260L316 320L108 320Z" fill="none" stroke="#B89B72" stroke-width="1.2" stroke-dasharray="4 4"/>`;
+    s += `<g transform="translate(272 304) scale(1.15)" stroke="#B85C38" stroke-width="2">${curl}</g>`;
+    return s;
+  },
+  throw(u){
+    let s = `<defs><pattern id="k${u}" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M5 0V10" stroke="#3B2F2A" stroke-opacity=".07" stroke-width="3"/></pattern></defs>`;
+    s += sh(200,456,170,14,.12);
+    s += `<rect x="110" y="90" width="180" height="210" rx="22" fill="#C9A67A"/><path d="M78 292L322 292L342 344L58 344Z" fill="#B8935F"/>`;
+    s += `<path d="M76 344L70 452M324 344L330 452" stroke="#9E7B4E" stroke-width="8" stroke-linecap="round"/>`;
+    const bl = `M140 80Q200 68 262 82L272 300Q306 332 294 420Q252 432 212 418Q170 434 128 420Q108 340 134 300Z`;
+    s += `<path d="${bl}" fill="#EAD9BE"/><path d="${bl}" fill="url(#k${u})"/>`;
+    s += `<path d="M150 120Q200 140 255 118M138 300Q200 320 270 300M160 360Q200 380 260 352" stroke="#3B2F2A" stroke-opacity=".08" stroke-width="3" fill="none"/>`;
+    for (let x = 134; x <= 290; x += 8) { const y = 420 + Math.sin(x / 9) * 4; s += `<path d="M${x} ${y}v14" stroke="#D9C7AE" stroke-width="2" stroke-linecap="round"/>`; }
+    return s;
+  },
+  towels(u){
+    let s = `<defs><pattern id="t${u}" width="6" height="6" patternUnits="userSpaceOnUse"><circle cx="3" cy="3" r="1.1" fill="#3B2F2A" fill-opacity=".07"/></pattern></defs>`;
+    s += `<rect x="20" y="410" width="360" height="14" fill="#C2AD8E"/>` + sh(200,408,150,8,.14);
+    const t = (x, y, w, h, c) => `<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="14" fill="${c}"/><rect x="${x}" y="${y}" width="${w}" height="${h}" rx="14" fill="url(#t${u})"/>` +
+      `<path d="M${x + 14} ${y + h * .7}H${x + w - 14}M${x + 14} ${y + h * .7 + 7}H${x + w - 14}" stroke="#3B2F2A" stroke-opacity=".14" stroke-width="2"/>`;
+    s += t(70,330,260,80,'#F8F4EC') + t(86,262,228,70,'#D9C7AE') + t(102,206,196,58,'#EDE3D3');
+    return s;
+  },
+  cushion(){
+    let s = `<rect x="20" y="120" width="360" height="260" rx="34" fill="#F1E9DC"/><rect x="10" y="330" width="380" height="130" rx="30" fill="#E9DECD"/>`;
+    s += sh(206,368,110,14,.14);
+    s += `<path d="M110 170Q200 150 290 170Q312 262 290 352Q200 372 110 352Q90 262 110 170Z" fill="#D4B994"/>`;
+    s += `<path d="M118 180Q200 162 282 180Q302 262 282 342Q200 360 118 342Q100 262 118 180Z" fill="none" stroke="#3B2F2A" stroke-opacity=".1" stroke-width="1.5"/>`;
+    s += `<path d="M150 230Q190 250 220 228M170 300Q210 284 250 310" stroke="#3B2F2A" stroke-opacity=".08" stroke-width="3" fill="none"/>`;
+    return s;
+  }
+};
+
+function art(p, opts = {}) {
+  const u = ++UID;
+  const bg = opts.bg || p.bg;
+  const vb = opts.vb || "0 0 400 500";
+  return `<svg viewBox="${vb}" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="${esc(nm(p))}">` +
+    `<defs><linearGradient id="g${u}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".35"/><stop offset=".65" stop-color="#fff" stop-opacity="0"/></linearGradient></defs>` +
+    `<rect width="400" height="500" fill="${bg}"/>${ART[p.art](u)}<rect width="400" height="500" fill="url(#g${u})"/></svg>`;
+}
+
+function heroArt() {
+  let rim = "";
+  for (let i = 0; i < 20; i++) rim += `<g transform="rotate(${i * 18} 300 300) translate(300 116)">${curl}</g>`;
+  return `<svg viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Керамическая тарелка с орнаментом на льняной скатерти">
+    <defs><linearGradient id="hl" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".4"/><stop offset=".6" stop-color="#fff" stop-opacity="0"/></linearGradient></defs>
+    <rect width="600" height="600" fill="#E3D4BE"/>
+    <path d="M0 360L600 120L600 600L0 600Z" fill="#EDE3D3"/>
+    <path d="M0 372L600 132" stroke="#D9C7AE" stroke-width="2"/>
+    <path d="M60 600L600 384" stroke="#3B2F2A" stroke-opacity=".05" stroke-width="18"/>
+    <circle cx="316" cy="318" r="214" fill="#3B2F2A" opacity=".13"/>
+    <g class="hero-plate">
+      <circle cx="300" cy="300" r="210" fill="#F6F0E6"/>
+      <circle cx="300" cy="300" r="210" fill="none" stroke="#E2D6C2" stroke-width="2"/>
+      <circle cx="300" cy="300" r="152" fill="#EFE7DA"/>
+      <circle cx="300" cy="300" r="146" fill="#F4EDE2"/>
+      <g stroke="#B85C38" stroke-width="2.2" opacity=".75">${rim}</g>
+      <path d="M150 210Q180 150 250 120" stroke="#fff" stroke-width="10" stroke-linecap="round" fill="none" opacity=".7"/>
+    </g>
+    <circle cx="512" cy="98" r="78" fill="#3B2F2A" opacity=".12"/>
+    <circle cx="502" cy="88" r="76" fill="#B85C38"/>
+    <circle cx="502" cy="88" r="62" fill="#8F4429"/>
+    <circle cx="502" cy="88" r="56" fill="#9C6A3A"/>
+    <ellipse cx="486" cy="74" rx="20" ry="10" fill="#fff" opacity=".15"/>
+    <path d="M40 520Q120 470 170 400" stroke="#B89B72" stroke-width="2.5" fill="none"/>
+    ${[0,1,2,3,4,5].map(j => { const x = 52 + j * 21, y = 510 - j * 19; return `<ellipse cx="${x}" cy="${y - 8}" rx="5" ry="12" fill="#C9AE84" transform="rotate(20 ${x} ${y - 8})"/><ellipse cx="${x + 10}" cy="${y + 2}" rx="5" ry="12" fill="#C9AE84" transform="rotate(70 ${x + 10} ${y + 2})"/>`; }).join("")}
+    <rect width="600" height="600" fill="url(#hl)"/>
+  </svg>`;
+}
+
+/* ============ Иконки ============ */
+const I = {
+  globe: '<svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></svg>',
+  wallet: '<svg class="icon" viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10h18M16 15h2"/></svg>',
+  leaf: '<svg class="icon" viewBox="0 0 24 24"><path d="M5 19c0-8 5-13 15-14-1 10-6 15-14 15"/><path d="M5 19l7-7"/></svg>',
+  hand: '<svg class="icon" viewBox="0 0 24 24"><path d="M7 12V6a1.5 1.5 0 0 1 3 0v5M10 11V4.5a1.5 1.5 0 0 1 3 0V11M13 11V5.5a1.5 1.5 0 0 1 3 0V12M16 12V8.5a1.5 1.5 0 0 1 3 0V14a7 7 0 0 1-7 7h-.5A6.5 6.5 0 0 1 6 18l-2.3-3.6a1.5 1.5 0 0 1 2.4-1.8L7 14"/></svg>',
+  box: '<svg class="icon" viewBox="0 0 24 24"><path d="M3 7.5L12 3l9 4.5v9L12 21l-9-4.5z"/><path d="M3 7.5L12 12l9-4.5M12 12v9"/></svg>',
+  cash: '<svg class="icon" viewBox="0 0 24 24"><rect x="2.5" y="6" width="19" height="12" rx="2"/><circle cx="12" cy="12" r="2.5"/><path d="M6 9v.01M18 15v.01"/></svg>',
+  qr: '<svg class="icon" viewBox="0 0 24 24"><rect x="4" y="4" width="6" height="6" rx="1"/><rect x="14" y="4" width="6" height="6" rx="1"/><rect x="4" y="14" width="6" height="6" rx="1"/><path d="M14 14h2v2h-2zM18 18h2v2h-2zM18 14h2M14 18v2"/></svg>',
+  card: '<svg class="icon" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18M7 15h4"/></svg>',
+  bank: '<svg class="icon" viewBox="0 0 24 24"><path d="M3 9l9-5 9 5M5 9v9M9.5 9v9M14.5 9v9M19 9v9M3 20h18"/></svg>',
+  shield: '<svg class="icon" viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 4.5-3.4 8.2-8 9-4.6-.8-8-4.5-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg>',
+  minus: '<svg class="icon" viewBox="0 0 24 24"><path d="M6 12h12"/></svg>',
+  plus: '<svg class="icon" viewBox="0 0 24 24"><path d="M12 6v12M6 12h12"/></svg>',
+  trash: '<svg class="icon" viewBox="0 0 24 24"><path d="M4 7h16M9 7V4.5h6V7M6.5 7l1 13h9l1-13"/></svg>',
+  x: '<svg class="icon" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg>',
+  check: '<svg class="icon" viewBox="0 0 24 24" style="width:34px;height:34px;stroke-width:2"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>',
+  wa: '<svg class="icon" viewBox="0 0 24 24"><path d="M12 3.5a8.5 8.5 0 0 0-7.3 12.9L3.5 20.5l4.2-1.1A8.5 8.5 0 1 0 12 3.5z"/></svg>',
+  clock: '<svg class="icon" viewBox="0 0 24 24" style="width:16px;height:16px"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>',
+  bag: '<svg viewBox="0 0 140 140"><circle cx="70" cy="70" r="66" fill="#EDE3D3"/><path d="M40 56h60l-5 48a6 6 0 0 1-6 5H51a6 6 0 0 1-6-5z" fill="#F7F2EA" stroke="#B89B72" stroke-width="2"/><path d="M56 56v-6a14 14 0 0 1 28 0v6" fill="none" stroke="#B89B72" stroke-width="2"/></svg>'
+};
+
+/* ============ Состояние ============ */
+const store = {
+  get(k, d) { try { const v = localStorage.getItem(k); return v ? JSON.parse(v) : d; } catch (e) { return d; } },
+  set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
+};
+const browserLang = (navigator.language || "").toLowerCase().startsWith("kk") ? "kk" : "ru";
+const S = {
+  lang: store.get("uy_lang", browserLang),
+  tab: "all", seg: "all", sort: "pop",
+  cart: store.get("uy_cart", []),
+  step: "cart",
+  form: { name: "", phone: "+7 ", country: 0, city: "", address: "", delivery: "courier", payment: "kaspi", comment: "", consent: false },
+  errors: {},
+  modal: null,
+  lastOrder: null,
+  monthVar: null, monthQty: 1
+};
+const t = () => T[S.lang];
+const byId = id => PRODUCTS.find(p => p.id === id);
+const nm = p => p.name[S.lang];
+const esc = s => String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const fmt = n => Math.round(n).toLocaleString("ru-RU").replace(/\s/g, "\u00a0") + "\u00a0₸";
+const fmtPlain = n => Math.round(n).toLocaleString("ru-RU").replace(/\s/g, " ") + " ₸";
+const salePrice = (price, pct) => pct ? Math.round(price * (100 - pct) / 100 / 100) * 100 : price;
+const pctOf = pid => { let p = 0; if (PROMO.month.id === pid) p = PROMO.month.pct; PROMO.weekly.forEach(w => { if (w.id === pid) p = Math.max(p, w.pct); }); return p; };
+const vLabel = (p, v) => v.label ? v.label[S.lang] : t().items(p.items);
+const minPrice = p => Math.min(...p.variants.map(v => v.price));
+const $ = s => document.querySelector(s);
+
+/* ============ Время (Казахстан, UTC+5) ============ */
+const TZ = 5 * 3600e3;
+function weekEnd() { const a = new Date(Date.now() + TZ); const toSun = (7 - a.getUTCDay()) % 7; return Date.UTC(a.getUTCFullYear(), a.getUTCMonth(), a.getUTCDate() + toSun, 23, 59, 59) - TZ; }
+function monthEnd() { const a = new Date(Date.now() + TZ); return Date.UTC(a.getUTCFullYear(), a.getUTCMonth() + 1, 0, 23, 59, 59) - TZ; }
+function left(end) { const ms = Math.max(0, end - Date.now()); const d = Math.floor(ms / 864e5), h = Math.floor(ms % 864e5 / 36e5), m = Math.floor(ms % 36e5 / 6e4); return [d, h, String(m).padStart(2, "0")]; }
+
+/* ============ Рендер: цены и карточки ============ */
+function priceHtml(p, v) {
+  const pct = pctOf(p.id);
+  if (v) {
+    return pct ? `<span class="now sale">${fmt(salePrice(v.price, pct))}</span><s>${fmt(v.price)}</s>` : `<span class="now">${fmt(v.price)}</span>`;
+  }
+  const min = minPrice(p), multi = p.variants.length > 1;
+  const now = fmt(salePrice(min, pct));
+  return `<span class="now${pct ? " sale" : ""}">${multi ? t().from(now) : now}</span>${pct ? `<s>${fmt(min)}</s>` : ""}`;
+}
+function specLine(p) {
+  if (p.cat === "dishes") return `${t().items(p.items)}, ${t().persons(p.persons)}`;
+  if (p.variants.length > 1) return `${t().sizes} ${p.variants.map(v => v.label[S.lang]).join(", ")}`;
+  return p.variants[0].label[S.lang];
+}
+function badgesHtml(p) {
+  const pct = pctOf(p.id); let b = "";
+  if (pct) b += `<span class="badge sale">−${pct}%</span>`;
+  if (PROMO.month.id === p.id) b += `<span class="badge">${t().month_badge}</span>`;
+  if (p.seg === "premium") b += `<span class="badge prem">${t().badge.premium}</span>`;
+  p.badges.forEach(k => b += `<span class="badge">${t().badge[k]}</span>`);
+  return `<div class="badges">${b}</div>`;
+}
+function cardHtml(p) {
+  const multi = p.variants.length > 1;
+  return `<article class="card">
+    <button class="card-img" type="button" data-open="${p.id}" aria-label="${esc(nm(p))}">${art(p)}${badgesHtml(p)}</button>
+    <h3><button type="button" data-open="${p.id}">${esc(nm(p))}</button></h3>
+    <p class="spec">${esc(specLine(p))}</p>
+    <div class="card-foot"><div class="price">${priceHtml(p)}</div>
+      <button class="btn btn-sm" type="button" data-add="${p.id}">${multi ? t().choose : t().add}</button></div>
+  </article>`;
+}
+
+/* ============ Рендер секций ============ */
+function renderStatic() {
+  document.documentElement.lang = S.lang === "kk" ? "kk" : "ru";
+  document.querySelectorAll("[data-t]").forEach(el => { const v = t()[el.dataset.t]; if (typeof v === "string") el.textContent = v; });
+  document.querySelectorAll("[data-lang]").forEach(b => b.setAttribute("aria-pressed", b.dataset.lang === S.lang));
+  const links = t().nav.map(([h, l]) => `<a href="${h}">${l}</a>`).join("");
+  $("#nav").innerHTML = links; $("#mnav").innerHTML = links;
+  $("#cartBtn").setAttribute("aria-label", t().cart_aria);
+  $("#burger").setAttribute("aria-label", t().menu);
+  $("#facts").innerHTML = t().facts.map((f, i) => `<li>${[I.globe, I.wallet, I.shield][i]}${f}</li>`).join("");
+  $("#whyGrid").innerHTML = t().why.map((w, i) => `<div class="why-item">${[I.leaf, I.hand, I.box, I.globe][i]}<h3>${w[0]}</h3><p>${w[1]}</p></div>`).join("");
+  $("#lines").innerHTML = t().lines.map((l, i) => `<div class="line-box${i ? " prem" : ""}"><h3>${l[0]}</h3><p>${l[1]}</p></div>`).join("");
+  $("#delTable").innerHTML = `<thead><tr>${t().del_head.map(h => `<th scope="col">${h}</th>`).join("")}</tr></thead><tbody>${t().del_rows.map(r => `<tr>${r.map(c => `<td>${c}</td>`).join("")}</tr>`).join("")}</tbody>`;
+  $("#payList").innerHTML = t().pay.map((p, i) => `<li>${[I.cash, I.qr, I.card, I.bank][i]}<b>${p[0]}</b><span>${p[1]}</span></li>`).join("");
+  $("#faqList").innerHTML = t().faq.map(q => `<details><summary>${q[0]}</summary><p>${q[1]}</p></details>`).join("");
+  $("#docsList").innerHTML = t().docs.map((d, i) => `<li><button class="linkish" type="button" data-doc="${i}">${d}</button></li>`).join("");
+  const segSel = $("#segSel"), sortSel = $("#sortSel");
+  segSel.innerHTML = Object.entries(t().seg).map(([k, v]) => `<option value="${k}"${k === S.seg ? " selected" : ""}>${v}</option>`).join("");
+  sortSel.innerHTML = Object.entries(t().sort).map(([k, v]) => `<option value="${k}"${k === S.sort ? " selected" : ""}>${v}</option>`).join("");
+}
+
+function renderMonth() {
+  const p = byId(PROMO.month.id); if (!p) { $("#month").hidden = true; return; }
+  const v = p.variants.find(x => x.id === S.monthVar) || p.variants[2] || p.variants[0];
+  S.monthVar = v.id;
+  const pct = PROMO.month.pct, now = salePrice(v.price, pct);
+  const [d, h, m] = left(monthEnd()), u = t().units;
+  $("#monthBox").innerHTML = `<div class="month-grid">
+    <button class="month-art card-img" type="button" data-open="${p.id}" aria-label="${esc(nm(p))}" style="aspect-ratio:16/12">${art(p, { vb: "0 70 400 300" })}</button>
+    <div>
+      <span class="pill">${t().month_badge}</span>
+      <h2>${esc(nm(p))}</h2>
+      <p class="tagline">${esc(p.tagline[S.lang])}</p>
+      <p class="desc">${esc(p.material[S.lang])}</p>
+      <span class="timer">${I.clock}${t().month_until}: <b id="monthTimer">${d} ${u[0]} ${h} ${u[1]} ${m} ${u[2]}</b></span>
+      <div class="big-price"><span class="now">${fmt(now)}</span><s>${fmt(v.price)}</s><span class="save">${t().save(fmt(v.price - now))}</span></div>
+      <div class="field-label">${t().size}</div>
+      <div class="opts" role="group">${p.variants.map(x => `<button type="button" class="opt" data-mvar="${x.id}" aria-pressed="${x.id === v.id}">${x.label[S.lang]}</button>`).join("")}</div>
+      <p class="dims">${esc(v.dims[S.lang])}</p>
+      <div class="buy-row">
+        ${qtyHtml(S.monthQty, "m")}
+        <button class="btn" type="button" data-madd>${t().addSum(fmt(now * S.monthQty))}</button>
+      </div>
+    </div></div>`;
+}
+
+function qtyHtml(q, key) {
+  return `<div class="qty"><button type="button" data-q="${key}" data-d="-1" aria-label="−" ${q <= 1 ? "disabled" : ""}>${I.minus}</button><input type="number" min="1" max="99" value="${q}" data-qi="${key}" aria-label="${t().qty}"><button type="button" data-q="${key}" data-d="1" aria-label="+" ${q >= 99 ? "disabled" : ""}>${I.plus}</button></div>`;
+}
+
+function renderDeals() {
+  const items = PROMO.weekly.map(w => byId(w.id)).filter(Boolean);
+  $("#deals").hidden = !items.length;
+  $("#dealsGrid").innerHTML = items.map(cardHtml).join("");
+  renderWeekTimer();
+}
+function renderWeekTimer() {
+  const [d, h, m] = left(weekEnd()), u = t().units;
+  $("#weekTimer").innerHTML = `<span>${t().left}</span><b>${d}</b><span>${u[0]}</span><b>${h}</b><span>${u[1]}</span><b>${m}</b><span>${u[2]}</span>`;
+}
+
+function renderCatalog() {
+  $("#tabs").innerHTML = Object.entries(t().tabs).map(([k, v]) => `<button type="button" role="tab" data-tab="${k}" aria-selected="${k === S.tab}">${v}</button>`).join("");
+  let list = PRODUCTS.filter(p => (S.tab === "all" || p.cat === S.tab) && (S.seg === "all" || p.seg === S.seg));
+  const eff = p => salePrice(minPrice(p), pctOf(p.id));
+  if (S.sort === "pop") list.sort((a, b) => b.pop - a.pop);
+  if (S.sort === "asc") list.sort((a, b) => eff(a) - eff(b));
+  if (S.sort === "desc") list.sort((a, b) => eff(b) - eff(a));
+  if (S.sort === "sale") list.sort((a, b) => pctOf(b.id) - pctOf(a.id) || b.pop - a.pop);
+  $("#catGrid").innerHTML = list.map(cardHtml).join("");
+}
+
+function renderReviews() {
+  const avg = REVIEWS.reduce((s, r) => s + r.rating, 0) / REVIEWS.length;
+  $("#ratingBox").innerHTML = `<b>${avg.toFixed(1).replace(".", ",")}</b><span class="stars" aria-hidden="true">★★★★★</span><span style="color:var(--muted)">${t().rev_of}, ${t().rev_count(REVIEWS.length)}</span>`;
+  $("#revTrack").innerHTML = REVIEWS.map(r => {
+    const p = byId(r.pid);
+    const date = new Date(r.date + "T12:00:00").toLocaleDateString(t().locale, { day: "numeric", month: "long" });
+    return `<article class="rev">
+      <div class="rev-top"><div class="ava" aria-hidden="true">${r.name[0]}</div><div><b>${esc(r.name)}</b><small>${esc(r.city[S.lang])}, ${date}</small></div></div>
+      <div class="stars" aria-label="${r.rating} / 5">${"★".repeat(r.rating)}<span style="color:var(--sand)">${"★".repeat(5 - r.rating)}</span></div>
+      <p>${esc(r.text)}</p>
+      <div class="bought">${t().rev_bought} <button type="button" data-open="${p.id}">${esc(nm(p))}</button></div>
+    </article>`;
+  }).join("");
+}
+
+/* ============ Корзина ============ */
+function saveCart() { store.set("uy_cart", S.cart); }
+function cartLines() {
+  return S.cart.map((c, i) => { const p = byId(c.pid); if (!p) return null; const v = p.variants.find(x => x.id === c.vid) || p.variants[0];
+    const pct = pctOf(p.id); return { i, p, v, qty: c.qty, unit: salePrice(v.price, pct), old: v.price, pct }; }).filter(Boolean);
+}
+function totals() {
+  const ls = cartLines();
+  const count = ls.reduce((s, l) => s + l.qty, 0), total = ls.reduce((s, l) => s + l.unit * l.qty, 0), full = ls.reduce((s, l) => s + l.old * l.qty, 0);
+  return { ls, count, total, disc: full - total };
+}
+function updateCount() {
+  const { count } = totals(); const el = $("#cartCount");
+  el.textContent = count; el.hidden = !count;
+}
+function addToCart(pid, vid, qty = 1) {
+  const ex = S.cart.find(c => c.pid === pid && c.vid === vid);
+  if (ex) ex.qty = Math.min(99, ex.qty + qty); else S.cart.push({ pid, vid, qty });
+  saveCart(); updateCount(); renderCart(); toast(t().added);
+}
+
+function renderCart() {
+  $("#drTitle").textContent = S.step === "form" ? t().form_title : S.step === "thanks" ? t().thanks_title : t().cart_title;
+  const body = $("#drBody"), foot = $("#drFoot");
+  const { ls, count, total, disc } = totals();
+  if (S.step === "thanks") {
+    const o = S.lastOrder || {};
+    body.innerHTML = `<div class="thanks"><div class="ok">${I.check}</div><h3>${t().thanks_title}</h3><p>${t().thanks_text(o.id || "")}</p>
+      <p>${t().manager} <a href="https://wa.me/${SETTINGS.whatsapp}" target="_blank" rel="noopener">${SETTINGS.phoneShown}</a></p>
+      <div class="btns"><a class="btn" href="${o.url || "#"}" target="_blank" rel="noopener">${I.wa}${t().send}</a><button class="btn btn-ghost" type="button" data-copy>${t().copy}</button><button class="back" type="button" data-cont>${t().cont}</button></div></div>`;
+    foot.hidden = true; return;
+  }
+  foot.hidden = false;
+  if (!ls.length && S.step === "cart") {
+    body.innerHTML = `<div class="empty">${I.bag}<p>${t().cart_empty}</p><button class="btn" type="button" data-tocat>${t().to_catalog}</button></div>`;
+    foot.hidden = true; return;
+  }
+  if (S.step === "cart") {
+    body.innerHTML = ls.map(l => `<div class="ci">
+      <div class="ci-img">${art(l.p)}</div>
+      <div><h4>${esc(nm(l.p))}</h4><div class="var">${esc(vLabel(l.p, l.v))}${l.pct ? `, −${l.pct}%` : ""}</div>
+        <div class="ci-row">${qtyHtml(l.qty, "c" + l.i)}<div class="price">${l.pct ? `<s>${fmt(l.old * l.qty)}</s>` : ""}<span class="now${l.pct ? " sale" : ""}">${fmt(l.unit * l.qty)}</span></div>
+        <button class="trash" type="button" data-rm="${l.i}" aria-label="${t().remove}">${I.trash}</button></div></div></div>`).join("");
+    const leftFree = SETTINGS.freeAlmaty - total;
+    foot.innerHTML = `
+      <div class="sum-row"><span>${t().cart_count(count)}</span><span>${fmt(total + disc)}</span></div>
+      ${disc ? `<div class="sum-row" style="color:var(--terra)"><span>${t().discount}</span><span>−${fmt(disc)}</span></div>` : ""}
+      <div class="sum-row total"><span>${t().total}</span><span>${fmt(total)}</span></div>
+      <div class="progress"><i style="width:${Math.min(100, total / SETTINGS.freeAlmaty * 100)}%"></i></div>
+      <p class="small">${leftFree > 0 ? t().free_left(fmt(leftFree)) : t().free_ok}. ${t().del_calc}.</p>
+      <button class="btn btn-block" type="button" data-checkout>${t().checkout}</button>`;
+    return;
+  }
+  // step: form
+  const f = S.form, e = S.errors, abroad = Number(f.country) !== 0;
+  if (abroad) { f.delivery = "intl"; if (f.payment === "cash") f.payment = "card"; }
+  else if (f.delivery === "intl") f.delivery = "courier";
+  const dl = abroad ? ["intl"] : ["courier", "pickup", "post"];
+  const pm = abroad ? ["kaspi", "card", "bank"] : ["cash", "kaspi", "card", "bank"];
+  const inp = (k, type = "text", extra = "") => `<label>${t().f[k]}<input class="inp${e[k] ? " err" : ""}" name="${k}" type="${type}" value="${esc(f[k])}" ${extra}>${e[k] ? `<span class="errmsg">${e[k]}</span>` : ""}</label>`;
+  body.innerHTML = `<form class="form" id="orderForm" novalidate>
+    <button class="back" type="button" data-backcart style="justify-self:start">${t().back}</button>
+    ${inp("name", "text", 'autocomplete="name"')}
+    ${inp("phone", "tel", 'autocomplete="tel" inputmode="tel"')}
+    <label>${t().f.country}<select class="inp" name="country">${t().countries.map((c, i) => `<option value="${i}"${i === Number(f.country) ? " selected" : ""}>${c}</option>`).join("")}</select></label>
+    ${inp("city", "text", 'autocomplete="address-level2"')}
+    ${f.delivery !== "pickup" ? inp("address", "text", 'autocomplete="street-address"') : ""}
+    <fieldset><legend>${t().f.delivery}</legend>${dl.map(k => `<label class="radio"><input type="radio" name="delivery" value="${k}"${f.delivery === k ? " checked" : ""}>${t().dlv[k]}</label>`).join("")}</fieldset>
+    <fieldset><legend>${t().f.payment}</legend>${pm.map(k => `<label class="radio"><input type="radio" name="payment" value="${k}"${f.payment === k ? " checked" : ""}>${t().pm[k]}</label>`).join("")}</fieldset>
+    <label>${t().f.comment}<textarea class="inp" name="comment" rows="3" placeholder="${t().f.comment_ph}">${esc(f.comment)}</textarea></label>
+    <label class="check"><input type="checkbox" name="consent"${f.consent ? " checked" : ""}><span>${t().f.consent}${e.consent ? `<br><span class="errmsg">${e.consent}</span>` : ""}</span></label>
+  </form>`;
+  foot.innerHTML = `<div class="sum-row total"><span>${t().total}</span><span>${fmt(total)}</span></div><p class="small">${t().del_calc}.</p>
+    <button class="btn btn-block" type="button" data-send>${I.wa}${t().send}</button>`;
+}
+
+function validate() {
+  const f = S.form, e = {};
+  ["name", "city"].forEach(k => { if (!String(f[k]).trim()) e[k] = t().err_req; });
+  if (f.delivery !== "pickup" && !String(f.address).trim()) e.address = t().err_req;
+  if (String(f.phone).replace(/\D/g, "").length < 10) e.phone = t().err_phone;
+  if (!f.consent) e.consent = t().err_consent;
+  S.errors = e; return !Object.keys(e).length;
+}
+
+function buildOrderText(id) {
+  const m = t().msg, f = S.form, { ls, total, disc } = totals();
+  const lines = ls.map((l, n) => `${n + 1}. ${nm(l.p)} (${vLabel(l.p, l.v)}) — ${l.qty} ${t().pcs} × ${fmtPlain(l.unit)} = ${fmtPlain(l.unit * l.qty)}`);
+  return [
+    `${m.hello}`, `${m.order}: ${id}`, "", ...lines, "",
+    ...(disc ? [`${m.discount}: −${fmtPlain(disc)}`] : []),
+    `${m.total}: ${fmtPlain(total)} ${m.nodel}`, "",
+    `${m.name}: ${f.name}`, `${m.phone}: ${f.phone}`,
+    `${m.place}: ${t().countries[Number(f.country)]}, ${f.city}`,
+    ...(f.delivery !== "pickup" ? [`${m.address}: ${f.address}`] : []),
+    `${m.delivery}: ${t().dlv[f.delivery]}`, `${m.payment}: ${t().pm[f.payment]}`,
+    ...(f.comment.trim() ? [`${m.comment}: ${f.comment.trim()}`] : [])
+  ].join("\n");
+}
+const waUrl = text => `https://wa.me/${SETTINGS.whatsapp}?text=${encodeURIComponent(text)}`;
+
+function sendOrder() {
+  if (!validate()) { renderCart(); const first = $("#drBody .err, #drBody .errmsg"); if (first) first.scrollIntoView({ block: "center", behavior: "smooth" }); return; }
+  const a = new Date(Date.now() + TZ);
+  const id = `UY-${String(a.getUTCDate()).padStart(2, "0")}${String(a.getUTCMonth() + 1).padStart(2, "0")}-${Math.floor(1000 + Math.random() * 9000)}`;
+  const text = buildOrderText(id), url = waUrl(text);
+  S.lastOrder = { id, text, url };
+  window.open(url, "_blank", "noopener");
+  S.cart = []; saveCart(); updateCount();
+  S.step = "thanks"; renderCart();
+}
+
+/* ============ Модальные окна ============ */
+let lastFocus = null;
+function openModal(html, narrow, label) {
+  lastFocus = document.activeElement;
+  const box = $("#modalBox");
+  box.className = "modal-box" + (narrow ? " narrow" : "");
+  box.innerHTML = `<button class="x modal-x" type="button" data-mclose aria-label="${t().close}">${I.x}</button>` + html;
+  $("#modal").setAttribute("aria-label", label || "");
+  $("#modal").classList.add("show"); $("#overlay").classList.add("show");
+  document.body.style.overflow = "hidden";
+  setTimeout(() => box.querySelector("[data-mclose]").focus(), 30);
+}
+function closeModal() {
+  $("#modal").classList.remove("show"); S.modal = null;
+  if (!$("#drawer").classList.contains("show")) { $("#overlay").classList.remove("show"); document.body.style.overflow = ""; }
+  if (lastFocus) lastFocus.focus();
+}
+
+function openProduct(pid, vid) {
+  const p = byId(pid); if (!p) return;
+  S.modal = { pid, vid: vid || p.variants[0].id, qty: 1, view: 0 };
+  openModal(productHtml(), false, nm(p));
+}
+function productHtml() {
+  const M = S.modal, p = byId(M.pid), v = p.variants.find(x => x.id === M.vid) || p.variants[0], pct = pctOf(p.id);
+  const views = [{}, { vb: "100 160 200 250" }, { bg: "#F1E8DA", vb: "40 60 320 400" }];
+  const thumbs = views.map((o, i) => `<button type="button" data-view="${i}" aria-pressed="${i === M.view}" aria-label="${i + 1}">${art(p, o)}</button>`).join("");
+  const unit = salePrice(v.price, pct);
+  return `<div class="pm">
+    <div class="pm-gal"><div class="pm-main">${art(p, views[M.view])}</div><div class="thumbs">${thumbs}</div></div>
+    <div class="pm-info">
+      ${badgesHtml(p).replace('class="badges"', 'class="badges" style="position:static"')}
+      <h2>${esc(nm(p))}</h2>
+      <div class="price" style="margin:4px 0 14px">${priceHtml(p, v)}</div>
+      <p class="desc">${esc(p.desc[S.lang])}</p>
+      ${p.cat === "textile" && p.variants.length > 1 ? `
+        <div class="field-label" style="margin-top:18px">${t().size}</div>
+        <div class="opts" role="group">${p.variants.map(x => `<button type="button" class="opt" data-pvar="${x.id}" aria-pressed="${x.id === v.id}">${x.label[S.lang]}</button>`).join("")}</div>
+        ${v.dims ? `<p class="dims">${esc(v.dims[S.lang])}</p>` : ""}` : `<div style="height:18px"></div>`}
+      <div class="field-label" style="margin-bottom:8px">${t().qty}</div>
+      <div class="buy-row">${qtyHtml(M.qty, "p")}<button class="btn" type="button" data-padd>${t().addSum(fmt(unit * M.qty))}</button></div>
+      <dl class="pm-meta">
+        ${p.cat === "dishes" ? `<dt>${t().itemsInSet}</dt><dd><b>${p.items}</b>, ${t().persons(p.persons)}</dd>` : `<dt>${t().size}</dt><dd>${esc(vLabel(p, v))}</dd>`}
+        <dt>${t().material}</dt><dd>${esc(p.material[S.lang])}</dd>
+        <dt>${t().care}</dt><dd>${esc(p.care[S.lang])}</dd>
+        <dt>${t().origin}</dt><dd>${esc(p.origin[S.lang])}</dd>
+        <dt></dt><dd style="color:var(--olive)">${t().stock}</dd>
+      </dl>
+      ${p.comp ? `<details class="comp" open><summary>${t().comp}</summary><ul>${p.comp.map(c => `<li>${esc(c[0][S.lang])} — ${c[1]} ${t().pcs}</li>`).join("")}</ul></details>` : ""}
+      <a class="ask" href="${waUrl(t().q_msg(nm(p)))}" target="_blank" rel="noopener">${I.wa}${t().ask}</a>
+    </div></div>`;
+}
+function rerenderProduct() { const box = $("#modalBox"); const btn = box.querySelector("[data-mclose]").outerHTML; box.innerHTML = btn + productHtml(); }
+
+let reviewRating = 5;
+function openReviewForm() {
+  reviewRating = 5;
+  openModal(reviewHtml(), true, t().rf_title);
+}
+function reviewHtml() {
+  return `<div style="padding:36px 32px 32px"><h2 style="font-size:34px;margin-bottom:20px">${t().rf_title}</h2>
+    <form class="form" id="revForm" style="padding:0">
+      <label>${t().f.name}<input class="inp" name="rname" required></label>
+      <label>${t().f.city}<input class="inp" name="rcity"></label>
+      <label>${t().rf_product}<select class="inp" name="rprod">${PRODUCTS.map(p => `<option value="${p.id}">${esc(nm(p))}</option>`).join("")}</select></label>
+      <div><div class="field-label" style="margin-bottom:6px">${t().rf_rating}</div><div class="stars-in" role="radiogroup">${[1,2,3,4,5].map(n => `<button type="button" role="radio" aria-checked="${n === reviewRating}" aria-label="${n}" data-star="${n}" class="${n <= reviewRating ? "on" : ""}">★</button>`).join("")}</div></div>
+      <label>${t().rf_text}<textarea class="inp" name="rtext" rows="4" required></textarea></label>
+      <p class="small" style="margin:0">${t().rf_note}</p>
+      <button class="btn btn-block" type="submit">${I.wa}${t().rf_send}</button>
+    </form></div>`;
+}
+
+/* ============ Корзина: открыть / закрыть ============ */
+function openCart() {
+  if (S.step === "thanks" && S.cart.length) S.step = "cart";
+  renderCart(); $("#drawer").classList.add("show"); $("#overlay").classList.add("show"); document.body.style.overflow = "hidden";
+  lastFocus = document.activeElement; setTimeout(() => $("#drawer [data-close]").focus(), 30);
+}
+function closeCart() {
+  $("#drawer").classList.remove("show");
+  if (S.step === "thanks") S.step = "cart";
+  if (!$("#modal").classList.contains("show")) { $("#overlay").classList.remove("show"); document.body.style.overflow = ""; }
+}
+
+/* ============ Тост ============ */
+let toastTimer;
+function toast(msg, action, fn) {
+  const el = $("#toast");
+  el.innerHTML = `<span>${msg}</span>${action ? `<button type="button">${action}</button>` : ""}`;
+  if (action) el.querySelector("button").onclick = () => { fn(); el.classList.remove("show"); };
+  el.classList.add("show"); clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => el.classList.remove("show"), action ? 5000 : 2200);
+}
+
+/* ============ Количество ============ */
+function setQty(key, val) {
+  val = Math.max(1, Math.min(99, parseInt(val, 10) || 1));
+  if (key === "m") { S.monthQty = val; renderMonth(); }
+  else if (key === "p") { S.modal.qty = val; rerenderProduct(); }
+  else if (key[0] === "c") { const i = +key.slice(1); if (S.cart[i]) { S.cart[i].qty = val; saveCart(); updateCount(); renderCart(); } }
+}
+function getQty(key) { return key === "m" ? S.monthQty : key === "p" ? S.modal.qty : (S.cart[+key.slice(1)] || {}).qty || 1; }
+function removeLine(i) {
+  const removed = S.cart.splice(i, 1)[0]; saveCart(); updateCount(); renderCart();
+  toast(t().removed, t().undo, () => { S.cart.splice(i, 0, removed); saveCart(); updateCount(); renderCart(); });
+}
+
+/* ============ События ============ */
+document.addEventListener("click", e => {
+  const el = e.target.closest("button, a"); if (!el) { if (e.target.id === "overlay") { if ($("#modal").classList.contains("show")) closeModal(); else closeCart(); } return; }
+  const d = el.dataset;
+  if (d.lang) { S.lang = d.lang; store.set("uy_lang", S.lang); renderAll(); if (S.modal) rerenderProduct(); return; }
+  if (d.open) { e.preventDefault(); openProduct(d.open); return; }
+  if (d.add) { const p = byId(d.add); if (p.variants.length > 1) openProduct(p.id); else addToCart(p.id, p.variants[0].id, 1); return; }
+  if (d.tab) { S.tab = d.tab; renderCatalog(); return; }
+  if (d.mvar) { S.monthVar = d.mvar; renderMonth(); return; }
+  if (d.madd !== undefined) { addToCart(PROMO.month.id, S.monthVar, S.monthQty); S.monthQty = 1; renderMonth(); return; }
+  if (d.q) { setQty(d.q, getQty(d.q) + Number(d.d)); return; }
+  if (d.pvar) { S.modal.vid = d.pvar; rerenderProduct(); return; }
+  if (d.view) { S.modal.view = +d.view; rerenderProduct(); return; }
+  if (d.padd !== undefined) { addToCart(S.modal.pid, S.modal.vid, S.modal.qty); closeModal(); return; }
+  if (d.mclose !== undefined) { closeModal(); return; }
+  if (d.rm) { removeLine(+d.rm); return; }
+  if (d.checkout !== undefined) { S.step = "form"; S.errors = {}; renderCart(); $("#drBody").scrollTop = 0; return; }
+  if (d.backcart !== undefined) { S.step = "cart"; renderCart(); return; }
+  if (d.send !== undefined) { sendOrder(); return; }
+  if (d.copy !== undefined) { const txt = (S.lastOrder || {}).text || ""; (navigator.clipboard ? navigator.clipboard.writeText(txt) : Promise.reject()).then(() => toast(t().copied)).catch(() => { prompt(t().copy, txt); }); return; }
+  if (d.cont !== undefined || d.tocat !== undefined) { closeCart(); S.step = "cart"; location.hash = "#catalog"; return; }
+  if (d.close !== undefined) { closeCart(); return; }
+  if (d.star) { reviewRating = +d.star; document.querySelectorAll("[data-star]").forEach(b => { const n = +b.dataset.star; b.classList.toggle("on", n <= reviewRating); b.setAttribute("aria-checked", n === reviewRating); }); return; }
+  if (d.rev) { const tr = $("#revTrack"); tr.scrollBy({ left: Number(d.rev) * (tr.firstElementChild.offsetWidth + 24), behavior: "smooth" }); return; }
+  if (d.doc) { openModal(`<div style="padding:40px 32px"><h2 style="font-size:32px;margin-bottom:14px">${t().docs[+d.doc]}</h2><p style="color:var(--muted)">${t().doc_text}</p></div>`, true, t().docs[+d.doc]); return; }
+  if (d.waGeneral !== undefined) { e.preventDefault(); window.open(waUrl(t().wa_general), "_blank", "noopener"); return; }
+  if (el.id === "cartBtn") { openCart(); return; }
+  if (el.id === "leaveReview") { openReviewForm(); return; }
+  if (el.id === "burger") { const m = $("#mnav"), open = !m.classList.contains("show"); m.classList.toggle("show", open); el.setAttribute("aria-expanded", open); return; }
+  if (el.closest("#mnav")) { $("#mnav").classList.remove("show"); $("#burger").setAttribute("aria-expanded", false); }
+});
+
+document.addEventListener("change", e => {
+  const el = e.target;
+  if (el.id === "segSel") { S.seg = el.value; renderCatalog(); }
+  if (el.id === "sortSel") { S.sort = el.value; renderCatalog(); }
+  if (el.dataset && el.dataset.qi) setQty(el.dataset.qi, el.value);
+  if (el.closest && el.closest("#orderForm")) {
+    if (el.name === "country") { S.form.country = Number(el.value); renderCart(); }
+    if (el.name === "delivery") { S.form.delivery = el.value; renderCart(); }
+    if (el.name === "payment") S.form.payment = el.value;
+    if (el.name === "consent") { S.form.consent = el.checked; if (el.checked) delete S.errors.consent; }
+  }
+});
+document.addEventListener("input", e => {
+  const el = e.target;
+  if (el.closest && el.closest("#orderForm") && ["name", "phone", "city", "address", "comment"].includes(el.name)) {
+    S.form[el.name] = el.value;
+    if (S.errors[el.name]) { delete S.errors[el.name]; el.classList.remove("err"); const m = el.parentElement.querySelector(".errmsg"); if (m) m.remove(); }
+  }
+});
+document.addEventListener("submit", e => {
+  if (e.target.id !== "revForm") return;
+  e.preventDefault();
+  const fd = new FormData(e.target), name = (fd.get("rname") || "").trim(), text = (fd.get("rtext") || "").trim();
+  if (!name || !text) { e.target.reportValidity(); return; }
+  const p = byId(fd.get("rprod"));
+  const msg = `${t().rf_msg}\n\n${t().f.name}: ${name}\n${t().f.city}: ${fd.get("rcity") || "—"}\n${t().rf_product}: ${nm(p)}\n${t().rf_rating}: ${"★".repeat(reviewRating)}\n\n${text}`;
+  window.open(waUrl(msg), "_blank", "noopener"); closeModal();
+});
+document.addEventListener("keydown", e => {
+  if (e.key !== "Escape") return;
+  if ($("#modal").classList.contains("show")) closeModal(); else if ($("#drawer").classList.contains("show")) closeCart();
+});
+
+/* шапка: граница при скролле и активный пункт меню */
+window.addEventListener("scroll", () => $("#hdr").classList.toggle("scrolled", scrollY > 10), { passive: true });
+if ("IntersectionObserver" in window) {
+  const io = new IntersectionObserver(entries => entries.forEach(en => {
+    if (en.isIntersecting) document.querySelectorAll(".nav a").forEach(a => a.classList.toggle("active", a.getAttribute("href") === "#" + en.target.id));
+  }), { rootMargin: "-45% 0px -50% 0px" });
+  ["month", "deals", "catalog", "delivery", "reviews", "faq"].forEach(id => io.observe(document.getElementById(id)));
+}
+
+/* таймеры */
+setInterval(() => { renderWeekTimer(); const mt = $("#monthTimer"); if (mt) { const [d, h, m] = left(monthEnd()), u = t().units; mt.textContent = `${d} ${u[0]} ${h} ${u[1]} ${m} ${u[2]}`; } }, 20000);
+
+function renderAll() { renderStatic(); renderMonth(); renderDeals(); renderCatalog(); renderReviews(); renderCart(); updateCount(); }
+
+$("#heroArt").innerHTML = heroArt();
+$("#watermark").innerHTML = `<g stroke="currentColor" stroke-width="1.6" fill="none">${Array.from({ length: 12 }, (_, i) => `<g transform="rotate(${i * 30} 100 100) translate(100 40) scale(1.6)">${curl}</g>`).join("")}<circle cx="100" cy="100" r="30"/><circle cx="100" cy="100" r="90"/></g>`;
+renderAll();
+</script>
+</body>
+</html>
